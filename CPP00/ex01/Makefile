@@ -1,6 +1,6 @@
 NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = megaphone.cpp
+SRC = main.cpp
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
 
