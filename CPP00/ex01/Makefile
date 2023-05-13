@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = phonebook
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = megaphone.cpp
 SRC_O = $(SRC:%.cpp=%.o)
