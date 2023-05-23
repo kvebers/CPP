@@ -26,7 +26,7 @@ int main(int argc, char **argv)
     while (cnt < argc)
     {
         toUpper(argv[cnt]);
-        std::cout << argv[cnt];
+        std::cout << argv[cnt] << " ";
         cnt++;
     }
     std::cout << std::endl;
