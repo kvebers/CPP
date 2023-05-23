@@ -95,7 +95,7 @@ void    PhoneBook::searchContact()
     if (std::cin >> input) 
     {
         if (input - 1 < 0)
-            std::cout << "Invalid input, do not add negatives" << std::endl;
+            std::cout << "Invalid input, do not add negatives or 0" << std::endl;
         else if (input - 1 >= _cnt)
             std::cout << "Invalid input, phonebook dose not have that many numbers" << std::endl;
         else
