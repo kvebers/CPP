@@ -11,11 +11,6 @@ PhoneBook::~PhoneBook ()
     return;
 }
 
-int PhoneBook::getTotal ()
-{
-    return _cnt;
-}
-
 std::string    inputManager(std::string line)
 {
     std::string input;
