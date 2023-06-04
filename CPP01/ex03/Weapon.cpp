@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 18:54:40 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 11:29:05 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/04 07:42:48 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/04 15:53:12 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-Zombie::Zombie(std::string name)
-{
-    _name = name;
-    return;
+Weapon::Weapon()
+{ 
+    return ;
 }
 
-Zombie::~Zombie()
+Weapon::~Weapon()
 {
-    std::cout << "Wow, I destroyed something, but what did I destroy?" <<std::endl;
-    return;
+    std::cout << "Sir, Ze weapon has been Destroyed" << std::endl;
+    return ;
 }
 
-void Zombie::announce()
-{
-    std::cout << _name <<": BraiiiiiiinnnzzzZ..." << std::endl;
-}
+Weapon::Weapon

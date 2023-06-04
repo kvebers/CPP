@@ -5,23 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 18:59:08 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 11:59:10 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/01 13:06:51 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/04 08:04:29 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
-
-//Summary of the excersise: Heap vs Stack Memory, Heap is bigger and more dynamic, hovever it needs to be manulaly delocated,
-//meamwhile compiler takes care of the stack memory, also heap is at risk of fragmentation
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 int main()
 {
-    Zombie *heat_zombie = newZombie("Zombie On Fire"); //heap zombie
-    heat_zombie->announce();
-
-    delete heat_zombie;
-
-    randomChump("Brick Zombie"); //stack zombie
-    system("leaks BraiiiiiiinnnzzzZ");
+    {
+    Weapon club = Weapon("crude spiked club");
+    HumanA bob("Bob", club);
+    bob.attack();
+    club.setType("some other type of club");
+    bob.attack();
+    }
+    {
+    Weapon club = Weapon("crude spiked club");
+    HumanB jim("Jim");
+    jim.setWeapon(club);    
+    jim.attack();
+    club.setType("some other type of club");
+    jim.attack();
+    }
+return 0;
 }

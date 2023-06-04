@@ -6,13 +6,17 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:54:40 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 11:29:05 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/01 12:12:59 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+Zombie::Zombie()
+{
+}
+
+void    Zombie::update_name(std::string name)
 {
     _name = name;
     return;

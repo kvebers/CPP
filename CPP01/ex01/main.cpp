@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 18:54:40 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 11:29:05 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/01 11:48:25 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/01 12:14:24 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+int main()
 {
-    _name = name;
-    return;
-}
+    int cnt;
+    int cnt1;
 
-Zombie::~Zombie()
-{
-    std::cout << "Wow, I destroyed something, but what did I destroy?" <<std::endl;
-    return;
-}
-
-void Zombie::announce()
-{
-    std::cout << _name <<": BraiiiiiiinnnzzzZ..." << std::endl;
+    cnt = 5;
+    cnt1 = 0;
+    Zombie *horde = zombieHorde(cnt, "CPP syntax");
+    while (cnt1 < cnt)
+    {
+        std::cout << cnt1 << " ";
+        horde[cnt1].announce();
+        cnt1++;
+    }
+    delete[] horde; // for some reason it is not in front but behind sure C++, sure
+    system("leaks horde");
 }

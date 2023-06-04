@@ -1,6 +1,9 @@
-NAME = phonebook
+NAME = horde
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC = 	main.cpp \
+		Zombie.cpp \
+		zombieHorde.cpp
+
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
 

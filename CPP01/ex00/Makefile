@@ -1,8 +1,11 @@
-NAME = BraiiiiiiinnnzzzZ
-CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Zombie.cpp
-SRC_O = $(SRC:%.cpp=%.o)
-RM = rm -f
+NAME 	= BraiiiiiiinnnzzzZ
+CFLAGS 	= -Wall -Wextra -Werror -std=c++98
+SRC 	= 	main.cpp \
+			Zombie.cpp \
+			newZombie.cpp \
+			randomChump.cpp
+SRC_O	= $(SRC:%.cpp=%.o)
+RM		= rm -f
 
 all: $(NAME)
 

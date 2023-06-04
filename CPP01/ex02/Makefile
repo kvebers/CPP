@@ -1,6 +1,7 @@
-NAME = phonebook
+NAME = too_much_coffe_brain_hurt
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC = 	main.cpp
+
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
 

@@ -1,30 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/23 18:54:40 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 11:29:05 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/01 11:17:43 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/01 12:23:31 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name)
+Zombie *zombieHorde(int N, std::string name)
 {
-    _name = name;
-    return;
-}
+    Zombie *horde = new Zombie[N]; //Need a default constructor, because the new command forces for explicit define, needed to delete
+    int cnt;
 
-Zombie::~Zombie()
-{
-    std::cout << "Wow, I destroyed something, but what did I destroy?" <<std::endl;
-    return;
-}
-
-void Zombie::announce()
-{
-    std::cout << _name <<": BraiiiiiiinnnzzzZ..." << std::endl;
+    cnt = 0;
+    while (cnt < N)
+    {
+        horde[cnt].update_name(name);
+        cnt++;
+    }
+    return horde;
 }
