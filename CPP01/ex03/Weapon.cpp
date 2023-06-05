@@ -6,13 +6,13 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 07:42:48 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 10:22:00 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/05 11:19:45 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
-Weapon::Weapon() : _type("")
+Weapon::Weapon(): _type("")
 { 
     return ;
 }

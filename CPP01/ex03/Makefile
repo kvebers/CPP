@@ -1,12 +1,9 @@
 NAME = unnecesery_coffe
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =  	main.cpp \
-		Weapon.hpp \
 		Weapon.cpp \
-		HumanA.hpp \
 		HumanA.cpp \
-		HumanB.hpp \
-		HumanB.cpp
+		HumanB.cpp 
 		
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

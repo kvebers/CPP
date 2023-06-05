@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/01 13:06:51 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/04 08:04:29 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/05 11:18:54 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ int main()
     club.setType("some other type of club");
     jim.attack();
     }
+    system("leaks unnecesery_coffe");
 return 0;
 }
