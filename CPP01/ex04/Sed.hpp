@@ -1,40 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 07:42:48 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 12:47:00 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/05 13:02:02 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/05 13:53:50 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#ifndef SED_HPP
+#define SED_HPP
 
-Weapon::Weapon(): _type(NULL)
-{ 
-    return ;
-}
+#include <iostream>
+#include <string>
 
-Weapon::~Weapon()
+class Sed
 {
-    std::cout << "Sir, Ze weapon has been Destroyed" << std::endl;
-    return ;
-}
+    private: 
+        std::string _filename;
+        std::string _string1;
+        std::string _string2;
+    public:
+        Sed(std::string filename, std::string string1, std::string string2);
+        ~Sed();
+};
 
-Weapon::Weapon(const std::string &type): _type(type)
-{
-    return ;
-}
-
-const std::string &Weapon::getType() const
-{
-    return _type;
-}
-
-void    Weapon::setType(const std::string &type)
-{
-    _type = type;
-    return ;
-}
+#endif

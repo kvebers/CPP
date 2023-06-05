@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/04 08:01:41 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 10:10:05 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/05 12:26:52 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ class Weapon
         Weapon (const std::string &type);
         const std::string &getType(void) const;
         void setType(const std::string &type);
-}
+};
 
 #endif

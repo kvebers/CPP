@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Sed.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 07:42:48 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 12:47:00 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/05 13:48:02 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/05 14:11:02 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Sed.hpp"
 
-Weapon::Weapon(): _type(NULL)
-{ 
-    return ;
-}
-
-Weapon::~Weapon()
-{
-    std::cout << "Sir, Ze weapon has been Destroyed" << std::endl;
-    return ;
-}
-
-Weapon::Weapon(const std::string &type): _type(type)
+Sed::Sed(std::string filename, std::string string1, std::string string2): _filename(filename), _string1(string1), _string2(string2)
 {
     return ;
 }
 
-const std::string &Weapon::getType() const
+Sed::~Sed()
 {
-    return _type;
-}
-
-void    Weapon::setType(const std::string &type)
-{
-    _type = type;
     return ;
 }

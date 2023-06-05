@@ -1,6 +1,8 @@
-NAME = phonebook
+NAME = replace_sed
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC =	main.cpp \
+		Sed.cpp
+			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
 

@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/04 07:42:48 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 12:47:00 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/05 12:54:25 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/05 14:10:32 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Sed.hpp"
 
-Weapon::Weapon(): _type(NULL)
-{ 
-    return ;
-}
-
-Weapon::~Weapon()
+int main(int argc, char **argv)
 {
-    std::cout << "Sir, Ze weapon has been Destroyed" << std::endl;
-    return ;
-}
-
-Weapon::Weapon(const std::string &type): _type(type)
-{
-    return ;
-}
-
-const std::string &Weapon::getType() const
-{
-    return _type;
-}
-
-void    Weapon::setType(const std::string &type)
-{
-    _type = type;
-    return ;
+    if (argc != 4)
+    {
+        std::cerr<<"Wrong number of arguments" <<std::endl;
+        return (0);
+    }
+    Sed sed(argv[1], argv[2], argv[3]);
+    return (0);
 }
