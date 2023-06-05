@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:59:08 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 11:59:10 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/05 10:22:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,5 @@ int main()
 
     randomChump("Brick Zombie"); //stack zombie
     system("leaks BraiiiiiiinnnzzzZ");
+    return (0);
 }

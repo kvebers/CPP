@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/23 18:54:40 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/01 12:12:59 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/05 10:22:11 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,5 @@ Zombie::~Zombie()
 void Zombie::announce()
 {
     std::cout << _name <<": BraiiiiiiinnnzzzZ..." << std::endl;
+    return ;
 }

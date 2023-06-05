@@ -51,6 +51,7 @@ void    PhoneBook::addContact()
         _contacts[_cnt] = contact;
         _cnt++;
     }
+    return ;
 }
 
 void    PhoneBook::searchContact()
@@ -107,4 +108,5 @@ void    PhoneBook::searchContact()
         std::cout << "Invalid input, please add an integer" << std::endl;
         std::cin.clear();
     }
+    return ;
 }
