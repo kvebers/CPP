@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 13:02:02 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 14:47:20 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/05 16:10:43 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/05 18:22:19 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-#define SED_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-
-class Sed
+int main()
 {
-    private: 
-        std::string _filename;
-        std::string _string1;
-        std::string _string2;
-    public:
-        Sed(std::string filename, std::string string1, std::string string2);
-        ~Sed();
-        void    ProcessTheFile();
-};
-
-#endif
+    Harl harl;
+    
+    std::cout<<std::endl;
+    harl.complain("DEBUG");
+    std::cout<<std::endl;
+    harl.complain("INFO");
+    std::cout<<std::endl;
+    harl.complain("WARNING");
+    std::cout<<std::endl;
+    harl.complain("ERROR");
+    std::cout<<std::endl;
+    harl.complain("IDK");
+    std::cout<<std::endl;
+}

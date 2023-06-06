@@ -1,6 +1,7 @@
-NAME = phonebook
+NAME = Harl
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Contact.cpp PhoneBook.cpp
+SRC =	main.cpp \
+		Harl.cpp
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
 

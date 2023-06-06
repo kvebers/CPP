@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.hpp                                            :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 13:02:02 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 14:47:20 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/05 16:10:43 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/06 10:25:38 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-#define SED_HPP
+#include "Harl.hpp"
 
-#include <iostream>
-#include <fstream>
-#include <string>
-
-class Sed
+void leak_checker()
 {
-    private: 
-        std::string _filename;
-        std::string _string1;
-        std::string _string2;
-    public:
-        Sed(std::string filename, std::string string1, std::string string2);
-        ~Sed();
-        void    ProcessTheFile();
-};
+    system("leaks Harl_Mode");
+}
 
-#endif
+int main(int argc, char **argv)
+{
+    Harl harl;
+    if (argc != 2)
+    {
+        std::cerr << "Error" << std::endl;
+        return (0);
+    }
+    harl.complain(argv[1]);
+    //atexit(leak_checker);
+}

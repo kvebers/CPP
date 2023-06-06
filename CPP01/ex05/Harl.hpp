@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Sed.hpp                                            :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/05 13:02:02 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 14:47:20 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/05 16:10:38 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/05 18:14:30 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SED_HPP
-#define SED_HPP
+#ifndef HARL_H
+#define HARL_H
 
 #include <iostream>
-#include <fstream>
-#include <string>
 
-class Sed
+class Harl
 {
-    private: 
-        std::string _filename;
-        std::string _string1;
-        std::string _string2;
+    private:
+        void (Harl::*probs[4])();
+        void debug (void);
+        void info (void);
+        void warning (void);
+        void error (void);
     public:
-        Sed(std::string filename, std::string string1, std::string string2);
-        ~Sed();
-        void    ProcessTheFile();
+        void complain(std::string level);
+        Harl();
+        ~Harl();
 };
 
 #endif

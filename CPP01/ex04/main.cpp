@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 12:54:25 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 14:10:32 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/05 16:00:13 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,7 @@ int main(int argc, char **argv)
         return (0);
     }
     Sed sed(argv[1], argv[2], argv[3]);
+    sed.ProcessTheFile();
+    system("leaks replace_sed");
     return (0);
 }
