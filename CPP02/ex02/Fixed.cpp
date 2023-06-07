@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/07 16:48:36 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/07 18:40:51 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,8 +100,81 @@ bool operator>(const Fixed &iamfixed) const;
     return (_fix > iamfixed._fix);
 }
 
-bool operator<(const Fixed &iamfixed) const;
-bool operator>=(const Fixed &iamfixed) const;
-bool operator<=(const Fixed &iamfixed) const;
-bool operator==(const Fixed &iamfixed) const;
-bool operator!=(const Fixed &iamfixed) const;
+bool operator<(const Fixed &iamfixed) const
+{
+    return (_fix < iamfixed._fix);
+}
+
+bool operator>=(const Fixed &iamfixed) const
+{
+    return (_fix >= iamfixed._fix);
+}
+
+bool operator<=(const Fixed &iamfixed) const
+{
+    return (_fix <= iamfixed._fix);
+}
+
+bool operator==(const Fixed &iamfixed) const
+{
+    return (_fix == iamfixed._fix);
+}
+
+bool operator!=(const Fixed &iamfixed) const
+{
+    return (_fix != iamfixed._fix);
+}
+
+Fixed operator+(const Fixed &iamfixed) const
+{
+      Fixed res;
+      res._fix = _fix + iamfixed._fix;
+      return (res);
+}
+
+Fixed operator-(const Fixed &iamfixed) const
+{
+    Fixed res;
+    res._fix = _fix - iamfixed._fix;
+    return (res);
+}
+
+Fixed operator*(const Fixed &iamfixed) const
+{
+    Fixed res;
+    res._fix = _fix * iamfixed._fix;
+    return (res);
+}
+
+Fixed operator/(const Fixed &iamfixed) const
+{
+    Fixed res;
+    res._fix = _fix / iamfixed._fix;
+    return (res);
+}
+
+Fixed &operator++()
+{
+    _fix++;
+    return (*this);
+}
+
+Fixed &operator++(int)
+{
+    Fixed sum(*this);
+    ++(*this);
+    return (sum);
+}
+
+Fixed &operator--()
+{
+     _fix--;
+    return (*this);
+}
+
+Fixed &operator--(int)
+{
+    Fixed sub(*this);
+    --(*this);
+    return (sub);
+}
