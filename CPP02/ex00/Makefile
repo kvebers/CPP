@@ -1,7 +1,7 @@
-NAME = replace_sed
+NAME = i_read_this_10x
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		Sed.cpp
+		Fixed.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
