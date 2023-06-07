@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/06 13:09:19 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/07 11:56:36 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,15 @@ Fixed &Fixed::operator=(const Fixed &iamfixed)
     return *this;
 }
 
-int Fixed::getRawBits()
+int Fixed::getRawBits() const
 {
     std::cout << "getRawBits member function called" <<std::endl;
     return _fix;
 }
 
-void Fixed::setRawBits(void)
+void Fixed::setRawBits(int const input)
 {
     std::cout <<"setRawBits member function is called" <<std::endl;
-    _fix = _numb;
+    _fix = input;
     return ;
 }

@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/07 12:33:24 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/07 15:09:20 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,25 +68,11 @@ float Fixed::toFloat(void) const
 {
     return (static_cast<float>(_fix) / (1 << _numb));
 }
-/*
-So what I understood from the subject about the overloads, we do so, to to simplfy the output and make it more intuitive,
-exaple:
-Fixed f(3.14);
-Without overload
-std::cout << f; Displays adress:0x7ffd8e3f4abc
-so to actually use it you would need to 
-std::cout << f.toFloat;
-with overload
-std::cout << f; Result 3.14
-*/
 
-
-/*
-Declears the os stream and the Class and the opperation class
-opperates with the functuin and returns its value.
-*/
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) 
+std::ostream &operator<<(std::ostream& os, const Fixed& fixed) 
 {
     os << fixed.toFloat();
     return os;
 }
+
+std::ostream

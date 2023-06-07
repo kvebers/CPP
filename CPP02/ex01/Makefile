@@ -1,4 +1,4 @@
-NAME = i_read_this_10x
+NAME = i_read_this_100x
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Fixed.cpp
