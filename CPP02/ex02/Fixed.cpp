@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/07 15:09:20 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/07 16:48:36 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,33 @@ std::ostream &operator<<(std::ostream& os, const Fixed& fixed)
     return os;
 }
 
-std::ostream
+Fixed &Fixed::min(Fixed &val1, Fixed &val2)
+{
+    return (val1 < val2) ? val1 : val2;
+}
+
+const Fixed &Fixed::min(const Fixed &val1, Fixed &val2)
+{
+    return (val1 < val2) ? val1 : val2;
+}
+
+Fixed &Fixed::max(Fixed &val1, Fixed &val2)
+{
+    return (val1 > val2) ? val1 : val2;
+}
+
+const Fixed &Fixed::max(Fixed &val1, Fixed &val2)
+{
+    return (val1 > val2) ? val1 : val2;
+}
+
+bool operator>(const Fixed &iamfixed) const;
+{
+    return (_fix > iamfixed._fix);
+}
+
+bool operator<(const Fixed &iamfixed) const;
+bool operator>=(const Fixed &iamfixed) const;
+bool operator<=(const Fixed &iamfixed) const;
+bool operator==(const Fixed &iamfixed) const;
+bool operator!=(const Fixed &iamfixed) const;
