@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/07 12:33:24 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/08 10:30:51 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ Fixed::~Fixed()
     return ;
 }
 
-Fixed::Fixed(const int raw) : _fix(raw << _numb)
+Fixed::Fixed(const int input) : _fix(input << _numb)
 {
+    std::cout << "Int Constructor called" <<std::endl;
     return ;
 }
 
-Fixed::Fixed(const float raw) : _fix(static_cast<int>(roundf(raw * (1 << _numb))))
+Fixed::Fixed(const float input) : _fix(static_cast<int>(roundf(input * (1 << _numb))))
 {
+    std::cout << "Float Constructor called" <<std::endl;
     return ;
 }
 

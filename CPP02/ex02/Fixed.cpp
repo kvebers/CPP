@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/07 18:40:51 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/08 10:07:17 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ Fixed::~Fixed()
     return ;
 }
 
-Fixed::Fixed(const int raw) : _fix(raw << _numb)
+Fixed::Fixed(const int input) : _fix(input << _numb)
 {
+    std::cout << "Int Constructor called" <<std::endl;
     return ;
 }
 
-Fixed::Fixed(const float raw) : _fix(static_cast<int>(roundf(raw * (1 << _numb))))
+Fixed::Fixed(const float input) : _fix(static_cast<int>(roundf(input * (1 << _numb))))
 {
+     std::cout << "Float Constructor called" <<std::endl;
     return ;
 }
 
@@ -75,106 +77,106 @@ std::ostream &operator<<(std::ostream& os, const Fixed& fixed)
     return os;
 }
 
-Fixed &Fixed::min(Fixed &val1, Fixed &val2)
+Fixed& Fixed::min(Fixed &val1, Fixed &val2)
 {
     return (val1 < val2) ? val1 : val2;
 }
 
-const Fixed &Fixed::min(const Fixed &val1, Fixed &val2)
+const Fixed& Fixed::min(const Fixed &val1, const Fixed &val2)
 {
     return (val1 < val2) ? val1 : val2;
 }
 
-Fixed &Fixed::max(Fixed &val1, Fixed &val2)
+Fixed& Fixed::max(Fixed& val1, Fixed& val2)
 {
     return (val1 > val2) ? val1 : val2;
 }
 
-const Fixed &Fixed::max(Fixed &val1, Fixed &val2)
+const Fixed& Fixed::max(const Fixed& val1, const Fixed& val2)
 {
     return (val1 > val2) ? val1 : val2;
 }
 
-bool operator>(const Fixed &iamfixed) const;
+bool Fixed::operator>(const Fixed &iamfixed) const
 {
     return (_fix > iamfixed._fix);
 }
 
-bool operator<(const Fixed &iamfixed) const
+bool Fixed::operator<(const Fixed &iamfixed) const
 {
     return (_fix < iamfixed._fix);
 }
 
-bool operator>=(const Fixed &iamfixed) const
+bool Fixed::operator>=(const Fixed &iamfixed) const
 {
     return (_fix >= iamfixed._fix);
 }
 
-bool operator<=(const Fixed &iamfixed) const
+bool Fixed::operator<=(const Fixed &iamfixed) const
 {
     return (_fix <= iamfixed._fix);
 }
 
-bool operator==(const Fixed &iamfixed) const
+bool Fixed::operator==(const Fixed &iamfixed) const
 {
     return (_fix == iamfixed._fix);
 }
 
-bool operator!=(const Fixed &iamfixed) const
+bool Fixed::operator!=(const Fixed &iamfixed) const
 {
     return (_fix != iamfixed._fix);
 }
 
-Fixed operator+(const Fixed &iamfixed) const
+Fixed Fixed::operator+(const Fixed &iamfixed) const
 {
-      Fixed res;
-      res._fix = _fix + iamfixed._fix;
-      return (res);
+    Fixed res;
+    res._fix = _fix + iamfixed._fix;
+    return res;
 }
 
-Fixed operator-(const Fixed &iamfixed) const
+Fixed Fixed::operator-(const Fixed &iamfixed) const
 {
     Fixed res;
     res._fix = _fix - iamfixed._fix;
-    return (res);
+    return res;
 }
 
-Fixed operator*(const Fixed &iamfixed) const
+Fixed Fixed::operator*(const Fixed &iamfixed) const
 {
     Fixed res;
-    res._fix = _fix * iamfixed._fix;
-    return (res);
+    res._fix = (_fix * iamfixed._fix) >> _numb;
+    return res;
 }
 
-Fixed operator/(const Fixed &iamfixed) const
+Fixed Fixed::operator/(const Fixed &iamfixed) const
 {
     Fixed res;
-    res._fix = _fix / iamfixed._fix;
-    return (res);
+    res._fix = (_fix * (1 << _numb)) / iamfixed._fix;
+    return res;
 }
 
-Fixed &operator++()
+Fixed& Fixed::operator++()
 {
-    _fix++;
-    return (*this);
+    ++_fix;
+    return *this;
 }
 
-Fixed &operator++(int)
+Fixed& Fixed::operator--()
 {
-    Fixed sum(*this);
+    --_fix;
+    return *this;
+}
+
+Fixed Fixed::operator++(int)
+{
+    Fixed res(*this);
     ++(*this);
-    return (sum);
+    return res;
 }
 
-Fixed &operator--()
+Fixed Fixed::operator--(int)
 {
-     _fix--;
-    return (*this);
-}
-
-Fixed &operator--(int)
-{
-    Fixed sub(*this);
+    Fixed res(*this);
     --(*this);
-    return (sub);
+    return res;
 }
