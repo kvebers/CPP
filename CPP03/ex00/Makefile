@@ -1,7 +1,7 @@
 NAME = well_this_game_is_kinda_bad
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

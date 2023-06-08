@@ -6,7 +6,16 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:08 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/08 12:14:09 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/08 13:27:14 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ClapTrap.hpp"
+
+int main()
+{
+    ClapTrap problem("Problem");
+    ClapTrap no("No Problem");
+    
+    
+}
