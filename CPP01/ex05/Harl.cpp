@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:10:41 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/06 10:16:08 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/08 10:46:32 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void Harl::warning()
 
 void Harl::error()
 {
-    std::cout<<"\"THAT IS THE HAMMER IS STRUK\" HARL FAILS YOU ON THE PROJECT"<<std::endl;
+    std::cout<<"\"THAT IS IT THE HAMMER IS STRUK\" HARL FAILS YOU ON THE PROJECT"<<std::endl;
 }
 
 void Harl::complain(std::string level)
