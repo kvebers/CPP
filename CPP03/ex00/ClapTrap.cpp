@@ -6,11 +6,13 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/08 14:55:57 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/08 15:06:07 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
+
+//ORTODOX STUFF AND WHAT NOT don't know the correct spelling sorry 
 
 ClapTrap::ClapTrap(const std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
@@ -23,6 +25,25 @@ ClapTrap::~ClapTrap()
     std::cout<<"Character "<< _name <<" Has Been Terminated"<<std::endl;
     return ;
 }
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &trap)
+{
+    if (this == &this)
+        return *this;
+    std::cout << "Calling the copy assigment opperator" << std::endl;
+    _name = trap._name;
+    _hitPoints = trap._hitPoints;
+    _energyPoints = trap._energyPoints;
+    _attackDamage = trap._attackDamage;
+    return (*this);
+}
+
+ClapTrap::ClapTrap(const ClapTrap &trap): _name(trap._name), _hitPoints(trap._hitPoints), _energyPoints(trap._energyPoints), _attackDamage(trap._attackDamage)
+{
+    std::cout << "Copy Constructor has been Called" << std::endl;
+}
+
+//SETTERS AND GETTERS
 
 void ClapTrap::setName(std::string name)
 {
