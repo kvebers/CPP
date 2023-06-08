@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/08 15:06:07 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/08 15:41:40 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,4 +88,29 @@ int ClapTrap::getDamage(void)
 int ClapTrap::setEnergy(void)
 {
     return (_energyPoints);
+}
+
+// THE ACTUAL FUNCTIONS
+
+void    ClapTrap::attack(const std::string &target)
+{
+    if (_energyPoints > 0)
+    {
+        std::cout<< "ClapTrap: " << _name
+        << "Attacks" << target << "dealing" << _attackDamage
+        <<" DMG" <<using std::endl;
+        _energyPoints--;
+    }
+    else
+    {
+        std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
+    }
+}
+
+void ClapTrap::takeDamage(unsigned int amount)
+{
+    if (_hitPoints > 0)
+    {
+        std::cout << "ClapTrap: "
+    }
 }
