@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 10:28:56 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 10:43:43 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &trap)
 ClapTrap::ClapTrap(const ClapTrap &trap): _name(trap._name), _hitPoints(trap._hitPoints), _energyPoints(trap._energyPoints), _attackDamage(trap._attackDamage)
 {
     std::cout << "Copy Constructor has been Called" << std::endl;
+    return ;
 }
 
 //SETTERS AND GETTERS
@@ -105,6 +106,7 @@ void    ClapTrap::attack(const std::string &target)
         std::cout<< "ClapTrap: "<< _name << "is dead, he can not perform any actions"<<std::endl;
     else
         std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
+    return ;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -112,15 +114,17 @@ void ClapTrap::takeDamage(unsigned int amount)
     if (_hitPoints > 0)
     {
         std::cout<< "ClapTrap: " << _name
-        << "Takes Damage" << amount <<using std::endl;
+        << " Takes Damage " << amount <<using std::endl;
         _hitPoints = _hitPoints - amount;
-        if (_hitPoints < 0)
+        if (_hitPoints <= 0)
+        {
             _hitPoints = 0;
+            std::cout<< "ClapTrap: "<< _name << " died"<<std::endl;
+        }
     }
     else
-    {
-        std::cout<< "ClapTrap: "<< _name << "is already dead have some respect"<<std::endl;
-    }
+        std::cout<< "ClapTrap: "<< _name << " is already dead have some respect"<<std::endl;
+    return ;
 }
 
 void    ClapTrap::beRepaired(unsigned int amount)
@@ -135,4 +139,5 @@ void    ClapTrap::beRepaired(unsigned int amount)
     }
     else
         std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
+    return ;
 }
