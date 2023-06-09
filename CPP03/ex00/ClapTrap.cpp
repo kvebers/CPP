@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/08 15:41:40 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 10:28:56 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,16 +101,38 @@ void    ClapTrap::attack(const std::string &target)
         <<" DMG" <<using std::endl;
         _energyPoints--;
     }
+    else if (_hitPoints <= 0)
+        std::cout<< "ClapTrap: "<< _name << "is dead, he can not perform any actions"<<std::endl;
     else
-    {
         std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
-    }
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_hitPoints > 0)
     {
-        std::cout << "ClapTrap: "
+        std::cout<< "ClapTrap: " << _name
+        << "Takes Damage" << amount <<using std::endl;
+        _hitPoints = _hitPoints - amount;
+        if (_hitPoints < 0)
+            _hitPoints = 0;
     }
+    else
+    {
+        std::cout<< "ClapTrap: "<< _name << "is already dead have some respect"<<std::endl;
+    }
+}
+
+void    ClapTrap::beRepaired(unsigned int amount)
+{
+    if (_energyPoints > 0)
+    {
+        if (_hitPoints == 0)
+            std::cout<< "ClapTrap: "<< _name << "is revived from the dead and restors "<< amount << "HP"<<std::endl;
+        else
+            std::cout<< "ClapTrap: "<< _name << "fixes himself and restors  "<< amount << "HP"<<std::endl;
+        _hitPoints = _hitPoints + amount;
+    }
+    else
+        std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
 }
