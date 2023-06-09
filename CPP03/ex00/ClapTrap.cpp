@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 11:27:13 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 12:01:52 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,13 +97,13 @@ void    ClapTrap::attack(const std::string &target)
 {
     if (_energyPoints > 0)
     {
-        std::cout<< "ClapTrap: " << _name << "Attacks" << target << "dealing" << _attackDamage <<" DMG" << std::endl;
+        std::cout<< "ClapTrap: \"" << _name << "\" Attacks " << target << " dealing " << _attackDamage <<" DMG" << std::endl;
         _energyPoints--;
     }
     else if (_hitPoints <= 0)
-        std::cout<< "ClapTrap: "<< _name << "is dead, he can not perform any actions"<<std::endl;
+        std::cout<< "ClapTrap: \""<< _name << "\" is dead, he can not perform any actions"<<std::endl;
     else
-        std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
+        std::cout<< "ClapTrap: \""<< _name << "\" is out of energy points, he is kinda lame"<<std::endl;
     return ;
 }
 
@@ -111,16 +111,16 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_hitPoints > 0)
     {
-        std::cout<< "ClapTrap: " << _name << " Takes Damage " << amount << "HP" <<std::endl;
+        std::cout<< "ClapTrap: \"" << _name << "\" Takes Damage " << amount << " HP " <<std::endl;
         _hitPoints = _hitPoints - amount;
         if (_hitPoints <= 0)
         {
             _hitPoints = 0;
-            std::cout<< "ClapTrap: "<< _name << " died"<<std::endl;
+            std::cout<< "ClapTrap: \""<< _name << "\" died"<<std::endl;
         }
     }
     else
-        std::cout<< "ClapTrap: "<< _name << " is already dead have some respect"<<std::endl;
+        std::cout<< "ClapTrap: \""<< _name << "\" is already dead have some respect"<<std::endl;
     return ;
 }
 
@@ -129,14 +129,14 @@ void    ClapTrap::beRepaired(unsigned int amount)
     if (_energyPoints > 0)
     {
         if (_hitPoints == 0)
-            std::cout<< "ClapTrap: "<< _name << "is revived from the dead and restors "<< amount << "HP"<<std::endl;
+            std::cout<< "ClapTrap: \""<< _name << "\" is revived from the dead and restors "<< amount << "HP"<<std::endl;
         else
-            std::cout<< "ClapTrap: "<< _name << "fixes himself and restors  "<< amount << "HP"<<std::endl;
+            std::cout<< "ClapTrap: \""<< _name << "\" fixes himself and restors  "<< amount << "HP"<<std::endl;
         _hitPoints = _hitPoints + amount;
         _energyPoints--;
     }
     else
-        std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
+        std::cout<< "ClapTrap: \""<< _name << "\" is out of energy points, he is kinda lame"<<std::endl;
     return ;
 }
 
