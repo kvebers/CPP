@@ -1,7 +1,8 @@
-NAME = Trap_Trap_Trap
+NAME = bordom_signal_that_something_you_do_dose_not_give_you_satisfaction
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
