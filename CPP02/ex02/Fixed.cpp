@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/06 11:25:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/08 10:07:17 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 11:25:41 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,6 @@ int Fixed::toInt(void) const
 float Fixed::toFloat(void) const
 {
     return (static_cast<float>(_fix) / (1 << _numb));
-}
-
-std::ostream &operator<<(std::ostream& os, const Fixed& fixed) 
-{
-    os << fixed.toFloat();
-    return os;
 }
 
 Fixed& Fixed::min(Fixed &val1, Fixed &val2)
@@ -179,4 +173,10 @@ Fixed Fixed::operator--(int)
     Fixed res(*this);
     --(*this);
     return res;
+}
+// super important
+std::ostream &operator<<(std::ostream& os, const Fixed& fixed) 
+{
+    os << fixed.toFloat();
+    return os;
 }

@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 10:43:43 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 11:27:13 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ ClapTrap::~ClapTrap()
 
 ClapTrap &ClapTrap::operator=(const ClapTrap &trap)
 {
-    if (this == &this)
+    if (this == &trap)
         return *this;
     std::cout << "Calling the copy assigment opperator" << std::endl;
     _name = trap._name;
@@ -86,7 +86,7 @@ int ClapTrap::getDamage(void)
     return (_attackDamage);
 }
 
-int ClapTrap::setEnergy(void)
+int ClapTrap::getEnergy(void)
 {
     return (_energyPoints);
 }
@@ -97,9 +97,7 @@ void    ClapTrap::attack(const std::string &target)
 {
     if (_energyPoints > 0)
     {
-        std::cout<< "ClapTrap: " << _name
-        << "Attacks" << target << "dealing" << _attackDamage
-        <<" DMG" <<using std::endl;
+        std::cout<< "ClapTrap: " << _name << "Attacks" << target << "dealing" << _attackDamage <<" DMG" << std::endl;
         _energyPoints--;
     }
     else if (_hitPoints <= 0)
@@ -113,8 +111,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 {
     if (_hitPoints > 0)
     {
-        std::cout<< "ClapTrap: " << _name
-        << " Takes Damage " << amount <<using std::endl;
+        std::cout<< "ClapTrap: " << _name << " Takes Damage " << amount << "HP" <<std::endl;
         _hitPoints = _hitPoints - amount;
         if (_hitPoints <= 0)
         {
@@ -136,8 +133,17 @@ void    ClapTrap::beRepaired(unsigned int amount)
         else
             std::cout<< "ClapTrap: "<< _name << "fixes himself and restors  "<< amount << "HP"<<std::endl;
         _hitPoints = _hitPoints + amount;
+        _energyPoints--;
     }
     else
         std::cout<< "ClapTrap: "<< _name << "is out of energy points, he is kinda lame"<<std::endl;
     return ;
+}
+
+//OS stream override
+
+std::ostream& operator<<(std::ostream& os, ClapTrap& trap)
+{
+    os<<"Name: " << trap.getName() << ", Health: " << trap.getHealth() << ", Energy: " << trap.getEnergy() << ", Damage: " << trap.getDamage();
+    return os;
 }
