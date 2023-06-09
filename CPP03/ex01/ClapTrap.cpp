@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 12:01:52 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 15:54:59 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 
 ClapTrap::ClapTrap(const std::string name): _name(name), _hitPoints(10), _energyPoints(10), _attackDamage(0)
 {
-    std::cout<<"Character "<< _name <<" Has Been created"<<std::endl;
+    std::cout<<"ClapTrap: Character "<< _name <<" Has Been created"<<std::endl;
     return ;
 }
 
 ClapTrap::~ClapTrap()
 {
-    std::cout<<"Character "<< _name <<" Has Been Terminated"<<std::endl;
+    std::cout<<"ClapTrap: Character "<< _name <<" Has Been Terminated"<<std::endl;
     return ;
 }
 

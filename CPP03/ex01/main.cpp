@@ -6,80 +6,51 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:08 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 12:08:18 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/09 17:06:34 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "ScavTrap.hpp"
 
 int main()
 {
     {
-    ClapTrap problem("Problem");
-    ClapTrap no("No Problem");
-    
-    std::cout<<std::endl<<"====================TEST=1====================="<<std::endl<<std::endl;
-    std::cout << problem << std::endl<<std::endl;
-    std::cout << no << std::endl<<std::endl;
+        std::cout<<std::endl<<"====================TEST=1====================="<<std::endl<<std::endl;
+        std::cout<<"INITS"<<std::endl;
+        ScavTrap lol;
+        ScavTrap trap("TESTER");
+        std::cout<<"INFO"<<std::endl;
+        std::cout << trap << std::endl;
+        std::cout<<std::endl << lol << std::endl;
+        lol.attack("TESTER");
+        lol.guardGate();
+        trap.takeDamage(lol.getDamage());
+        std::cout << trap << std::endl;
+        std::cout<<std::endl << lol << std::endl;
+        std::cout<<std::endl<<"DESTROYS"<< std::endl;
+    }
+    {
+        std::cout<<std::endl<<"====================TEST=2====================="<<std::endl<<std::endl;
+        std::cout<<"INITS"<<std::endl;
+        ScavTrap lol;
+        ScavTrap trap("TESTER");
+        std::cout<<"INFO"<<std::endl;
+        std::cout << trap << std::endl;
+        std::cout<<std::endl << lol << std::endl;
+        int i;
 
-    while (problem.getEnergy() > 0)
-    {
-        problem.attack("no");
-        no.takeDamage(problem.getDamage());
-    }
-    std::cout<<std::endl;
-    while (no.getEnergy() > 0)
-        no.beRepaired(1);
-    std::cout<<std::endl;
-    std::cout << problem << std::endl<<std::endl;
-    std::cout << no << std::endl<<std::endl;
-    }
-    {
-    ClapTrap problem("Problem");
-    ClapTrap no("No Problem");
-    
-    std::cout<<std::endl<<"====================TEST=2====================="<<std::endl<<std::endl;
-    problem.setDamage(2);
-    std::cout << problem << std::endl<<std::endl;
-    std::cout << no << std::endl<<std::endl;
-    while (problem.getEnergy() > 0)
-    {
-        problem.attack("no");
-        no.takeDamage(problem.getDamage());
-    }
-    std::cout<<std::endl;
-    while (no.getEnergy() > 0)
-        no.beRepaired(1);
-    std::cout<<std::endl;
-    std::cout << problem << std::endl<<std::endl;
-    std::cout << no << std::endl<<std::endl;
-    }
-    {
-    ClapTrap problem("Problem");
-    ClapTrap no("No Problem");
-    
-    std::cout<<std::endl<<"====================TEST=3====================="<<std::endl<<std::endl;
-    problem.setDamage(1);
-    no.setDamage(2);
-    std::cout << problem << std::endl<<std::endl;
-    std::cout << no << std::endl<<std::endl;
-    while (problem.getEnergy() > 0)
-    {
-        no.attack("problem");
-        problem.takeDamage(no.getDamage());
-        if (problem.getHealth() <= 0)
-            problem.beRepaired(1);
-        else
+        i = 0;
+        while (i < 5)
         {
-            problem.attack("no");
-            no.takeDamage(problem.getDamage());
+            lol.attack("TESTER");
+            trap.takeDamage(lol.getDamage());
+            trap.guardGate();
+            lol.guardGate();
+            lol.beRepaired(1);
+            std::cout << trap << std::endl;
+            std::cout<<std::endl << lol << std::endl;
+            i++;
         }
-    }
-    std::cout<<std::endl;
-    while (no.getEnergy() > 0)
-        no.beRepaired(1);
-    std::cout<<std::endl;
-    std::cout << problem << std::endl<<std::endl;
-    std::cout << no << std::endl<<std::endl;
+        std::cout<<std::endl<<"DESTROYS"<< std::endl;
     }
 }

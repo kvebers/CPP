@@ -1,7 +1,8 @@
-NAME = Trap_Trap
+NAME = the_best_season_everrrrr_nervous_laught
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		Fixed.cpp
+		ClapTrap.cpp \
+		ScavTrap.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
