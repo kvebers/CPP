@@ -1,0 +1,10 @@
+# Object files
+*.o
+*.obj
+
+# Compiled binaries
+*.exe
+*.out
+
+# Build directories (optional)
+build/
