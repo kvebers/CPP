@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:17 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 11:25:02 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 10:51:15 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ class ClapTrap
         int _attackDamage;
     public:
         //orthodox form
+        ClapTrap();
         ClapTrap(const std::string name);
         ~ClapTrap();
         ClapTrap(const ClapTrap &trap);

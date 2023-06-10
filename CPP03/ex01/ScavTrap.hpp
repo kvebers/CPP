@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:20:01 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 17:59:44 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 10:58:58 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ class ScavTrap: public ClapTrap
     private:
     public:
         ScavTrap();
+        ScavTrap(ScavTrap const &trap);
         ~ScavTrap();
         ScavTrap(const std::string &name);
         ScavTrap &operator=(ScavTrap &trap);

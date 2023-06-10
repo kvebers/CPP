@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:44:49 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 18:01:21 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 11:19:40 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,10 @@ class FragTrap: public ClapTrap
 {
     private:
     public:
-        FragTrap();
-        ~FragTrap();
         FragTrap(const std::string &name);
+        FragTrap();
+        FragTrap(FragTrap const &trap);
+        ~FragTrap();
         FragTrap &operator=(FragTrap &trap);
         // Functions to update and implement 
         void guardGate();

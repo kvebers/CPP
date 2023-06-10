@@ -6,13 +6,21 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:20:05 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 17:07:13 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 11:05:36 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 // ORTHODOX FORM wop wop
+
+ScavTrap::ScavTrap(const ScavTrap &trap): ClapTrap("Default")
+{
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
+    return ;
+}
 
 ScavTrap::ScavTrap() : ClapTrap("Default")
 {
@@ -74,13 +82,13 @@ void ScavTrap::attack(const std::string &target)
 void ScavTrap::guardGate()
 {
     if (_energyPoints <= 0)
-        std::cout<<"ScavTrap: Can not guard gate, bcz no energy is left"<<std::endl;
+        std::cout<<"ScavTrap: \""<< _name << "\" Can not guard gate, bcz no energy is left"<<std::endl;
     else if (_hitPoints <= 0)
-        std::cout <<"ScavTraP: Can not guard gate, bcz he is dead"<<std::endl;
+        std::cout <<"ScavTrap: \""<< _name <<"\" Can not guard gate, bcz he is dead"<<std::endl;
     else
     {
         _energyPoints--;
-        std::cout << "ScavTrap attempts to guard the gate, but then he realizes that there aint any gate"<<std::endl;
+        std::cout << "ScavTrap: \""<< _name <<"\" attempts to guard the gate, but then he realizes that there aint any gate"<<std::endl;
     }
     return ;
 }

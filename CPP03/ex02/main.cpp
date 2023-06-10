@@ -6,24 +6,22 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:08 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 17:06:34 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 11:21:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main()
 {
     {
         std::cout<<std::endl<<"====================TEST=1====================="<<std::endl<<std::endl;
         std::cout<<"INITS"<<std::endl;
-        ScavTrap lol;
-        ScavTrap trap("TESTER");
+        FragTrap lol;
+        FragTrap trap("TESTER");
         std::cout<<"INFO"<<std::endl;
         std::cout << trap << std::endl;
         std::cout<<std::endl << lol << std::endl;
-        lol.attack("TESTER");
-        lol.guardGate();
         trap.takeDamage(lol.getDamage());
         std::cout << trap << std::endl;
         std::cout<<std::endl << lol << std::endl;
@@ -32,8 +30,8 @@ int main()
     {
         std::cout<<std::endl<<"====================TEST=2====================="<<std::endl<<std::endl;
         std::cout<<"INITS"<<std::endl;
-        ScavTrap lol;
-        ScavTrap trap("TESTER");
+        FragTrap lol;
+        FragTrap trap("TESTER");
         std::cout<<"INFO"<<std::endl;
         std::cout << trap << std::endl;
         std::cout<<std::endl << lol << std::endl;
@@ -42,10 +40,7 @@ int main()
         i = 0;
         while (i < 5)
         {
-            lol.attack("TESTER");
             trap.takeDamage(lol.getDamage());
-            trap.guardGate();
-            lol.guardGate();
             lol.beRepaired(1);
             std::cout << trap << std::endl;
             std::cout<<std::endl << lol << std::endl;

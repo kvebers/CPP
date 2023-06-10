@@ -6,15 +6,34 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:44:52 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/09 17:58:48 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 11:20:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-ScavTrap::ScavTrap() : ClapTrap("Default")
+FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 {
-    std::cout << "The ScavTrap: "<< this->_name << " has been created, long live the ScavTrap" << std::endl;
+    std::cout << "FragTrap: "<< this->_name << " Parameterized Constructor has been called" << std::endl;
+    this->_hitPoints = 100;
+    this->_energyPoints = 50;
+    this->_attackDamage = 20;
+    return ;
+}
+
+
+FragTrap::FragTrap(const FragTrap &trap): ClapTrap("Default")
+{
+    _hitPoints = 100;
+    _energyPoints = 50;
+    _attackDamage = 20;
+    std::cout << "FragTrap: " << _name << " Parameterized Constructor has been called" << std::endl;
+    return ;
+}
+
+FragTrap::FragTrap() : ClapTrap("Default")
+{
+    std::cout << "The FragTrap: "<< this->_name << " has been created, long live the ScavTrap" << std::endl;
     this->_name = "Default";
     this->_hitPoints = 100;
     this->_energyPoints = 50;
@@ -22,24 +41,15 @@ ScavTrap::ScavTrap() : ClapTrap("Default")
     return ;
 }
 
-ScavTrap::~ScavTrap()
+FragTrap::~FragTrap()
 {
-    std::cout << "The ScavTrap "<< this->_name << " has been destoryed for ever" << std::endl;
+    std::cout << "The FragTrap "<< this->_name << " has been destoryed for ever" << std::endl;
     return ;
 }
 
-ScavTrap::ScavTrap(const std::string &name) : ClapTrap(name)
+FragTrap &FragTrap::operator=(FragTrap &trap)
 {
-    std::cout << "ScavTrap: "<< this->_name << " Parameterized Constructor has been called" << std::endl;
-    this->_hitPoints = 100;
-    this->_energyPoints = 50;
-    this->_attackDamage = 20;
-    return ;
-}
-
-ScavTrap &ScavTrap::operator=(ScavTrap &trap)
-{
-    std::cout << "ScavTrap:  "<< this->_name << " COpy assigment opperator has been called"<< std::endl;
+    std::cout << "FragTrap:  "<< this->_name << " COpy assigment opperator has been called"<< std::endl;
      if (this == &trap)
         return *this;
     ClapTrap::operator=(trap);
