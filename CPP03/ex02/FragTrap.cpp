@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:44:52 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/10 12:08:43 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 12:19:28 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ FragTrap::FragTrap(const std::string &name) : ClapTrap(name)
 }
 
 
-FragTrap::FragTrap(const FragTrap &trap): ClapTrap("Default")
+FragTrap::FragTrap(const FragTrap &trap): ClapTrap("FRAGTRAP")
 {
     _hitPoints = 100;
     _energyPoints = 100;
@@ -31,7 +31,7 @@ FragTrap::FragTrap(const FragTrap &trap): ClapTrap("Default")
     return ;
 }
 
-FragTrap::FragTrap() : ClapTrap("Default")
+FragTrap::FragTrap() : ClapTrap("FRAGTRAP")
 {
     std::cout << "The FragTrap: "<< this->_name << " has been created, long live the FragTrap, that is special to FRAGTRAP" << std::endl;
     this->_name = "Default";

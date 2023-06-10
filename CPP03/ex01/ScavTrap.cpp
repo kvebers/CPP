@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:20:05 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/10 11:05:36 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 12:19:41 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 // ORTHODOX FORM wop wop
 
-ScavTrap::ScavTrap(const ScavTrap &trap): ClapTrap("Default")
+ScavTrap::ScavTrap(const ScavTrap &trap): ClapTrap("SCAVTRAP")
 {
     _hitPoints = 100;
     _energyPoints = 50;
@@ -22,7 +22,7 @@ ScavTrap::ScavTrap(const ScavTrap &trap): ClapTrap("Default")
     return ;
 }
 
-ScavTrap::ScavTrap() : ClapTrap("Default")
+ScavTrap::ScavTrap() : ClapTrap("SCAVTRAP")
 {
     std::cout << "The ScavTrap: "<< this->_name << " has been created, long live the ScavTrap" << std::endl;
     this->_name = "Default";
