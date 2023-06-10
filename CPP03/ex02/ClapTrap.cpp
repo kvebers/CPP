@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/08 12:14:21 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/10 10:53:19 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 12:01:09 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         {
             _hitPoints = 0;
             std::cout<< "ClapTrap: \""<< _name << "\" died"<<std::endl;
+            _energyPoints = 0;
         }
     }
     else
