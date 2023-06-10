@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/05 16:10:43 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/05 18:22:19 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/10 07:13:04 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int main()
     std::cout<<std::endl;
     harl.complain("ERROR");
     std::cout<<std::endl;
-    harl.complain("IDK");
+    harl.complain("IDasdasdK");
     std::cout<<std::endl;
 }
