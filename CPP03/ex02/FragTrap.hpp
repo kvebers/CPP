@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:44:49 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/10 12:06:47 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/11 07:45:44 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 
 #include "ClapTrap.hpp"
 
-class FragTrap: public ClapTrap
-{
-    private:
-    public:
-        FragTrap(const std::string &name);
-        FragTrap();
-        FragTrap(FragTrap const &trap);
-        ~FragTrap();
-        FragTrap &operator=(FragTrap &trap);
-        // Functions to update and implement 
-        void highFivesGuys();
-        void attack(const std::string &target);
+class FragTrap : public ClapTrap {
+   private:
+   public:
+	FragTrap(const std::string &name);
+	FragTrap();
+	FragTrap(FragTrap const &trap);
+	~FragTrap();
+	FragTrap &operator=(FragTrap &trap);
+	// Functions to update and implement
+	void highFivesGuys();
+	void attack(const std::string &target);
 };
 
-std::ostream& operator<<(std::ostream& os, FragTrap& trap);
+std::ostream &operator<<(std::ostream &os, FragTrap &trap);
 
 #endif

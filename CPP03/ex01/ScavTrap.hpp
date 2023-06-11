@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 12:20:01 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/10 10:58:58 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/11 07:46:00 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
-{
-    private:
-    public:
-        ScavTrap();
-        ScavTrap(ScavTrap const &trap);
-        ~ScavTrap();
-        ScavTrap(const std::string &name);
-        ScavTrap &operator=(ScavTrap &trap);
-        // Functions to update and implement 
-        void guardGate();
-        void attack(const std::string &target);
+class ScavTrap : public ClapTrap {
+   private:
+   public:
+	ScavTrap();
+	ScavTrap(ScavTrap const &trap);
+	~ScavTrap();
+	ScavTrap(const std::string &name);
+	ScavTrap &operator=(ScavTrap &trap);
+	// Functions to update and implement
+	void guardGate();
+	void attack(const std::string &target);
 };
 
-std::ostream& operator<<(std::ostream& os, ScavTrap& trap);
+std::ostream &operator<<(std::ostream &os, ScavTrap &trap);
 
 #endif
