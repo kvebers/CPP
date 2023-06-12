@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/10 13:28:12 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/11 08:29:22 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/12 11:17:28 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/12 14:01:22 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main()
+#include "Animal.hpp"
+#include "Cat.hpp"
+
+int main()
 {
-	{
-		const Animal* meta = new Animal();
-		const Animal* j = new Dog();
-		const Animal* i = new Cat();
-		std::cout << j->getType() << " " << std::endl;
-		std::cout << i->getType() << " " << std::endl;
-		i->makeSound(); //will output the cat sound!
-		j->makeSound();
-		meta->makeSound();
-	}
+    {
+        Animal animal;
+    }
 }

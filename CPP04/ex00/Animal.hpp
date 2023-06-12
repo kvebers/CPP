@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:28:31 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/11 09:47:39 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/12 11:16:41 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,19 @@
 
 #include <iostream>
 
-class Animal{
-    protected:
-        std::string type;
-    public:
-        Animal();
-        ~Animal();
-        Animal(const std::string &type);
-	    Animal &operator=(Animal &trap);
-    
+class Animal {
+   public:
+   //ORTHODOX STUFF
+	Animal();
+	virtual ~Animal();
+	Animal(const Animal &animal);
+	Animal &operator=(const Animal &animal);
+    //The Functions
+	std::string getType() const;
+	virtual void makeSound() const;
+    //INPUT
+   protected:
+	std::string _type;
 };
-
 
 #endif

@@ -6,7 +6,10 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:49:22 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/11 09:49:23 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/12 13:39:04 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "Cat.hpp"
+
+Cat::Cat() : Animal("Cat") { std::cout << "Cat found" << std::endl; }

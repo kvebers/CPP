@@ -1,7 +1,9 @@
 NAME = polymorphism
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		ClapTrap.cpp
+		Animal.cpp \
+		Dog.cpp \
+		Cat.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
