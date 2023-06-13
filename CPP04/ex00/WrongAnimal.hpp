@@ -1,27 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 09:49:31 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 11:52:12 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/13 11:23:39 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/13 11:39:12 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef WRONG_ANIMAL_HPP
+#define WRONG_ANIMAL_HPP
 
-#include "Animal.hpp"
+#include <iostream>
 
-class Cat : public Animal {
+class WrongAnimal {
    public:
-	Cat();
-	~Cat();
-	Cat &operator=(const Cat &cat);
-	Cat(const Animal &cat);
-	virtual void makeSound() const;
+	// ORTHODOX STUFF
+	WrongAnimal();
+	virtual ~WrongAnimal();
+	WrongAnimal(const WrongAnimal &animal);
+	WrongAnimal &operator=(const WrongAnimal &wronganimal);
+	WrongAnimal(std::string type);
+	// The Functions
+	std::string getType() const;
+	void makeSound() const;
+	// INPUT
+   protected:
+	std::string _type;
 };
 
 #endif

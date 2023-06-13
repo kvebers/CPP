@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:49:25 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 09:38:49 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 11:35:37 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Animal::Animal(const Animal &animal) : _type(animal._type) {
 
 Animal &Animal::operator=(const Animal &animal) {
 	if (this == &animal) return *this;
-    std::cout << "Animal Copy Assigned" << std::endl;
+	std::cout << "Animal Copy Assigned" << std::endl;
 	_type = animal._type;
 	return *this;
 }

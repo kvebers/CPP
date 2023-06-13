@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:49:22 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 09:50:28 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 11:52:15 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ Cat &Cat::operator=(const Cat &cat) {
 	return *this;
 }
 
-Cat::Cat(const Animal &cat) : Animal(cat) { std::cout << "Cat Found from other cat" << std::endl; }
+Cat::Cat(const Animal &cat) : Animal(cat) { std::cout << "Cat Copy Found" << std::endl; }
 
 void Cat::makeSound() const { std::cout << "Ņauuu Ņauuu Ņauuu" << std::endl; }

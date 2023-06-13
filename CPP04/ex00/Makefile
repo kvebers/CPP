@@ -3,7 +3,9 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
-		Cat.cpp
+		Cat.cpp \
+		WrongCat.cpp \
+		WrongAnimal.cpp 
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
