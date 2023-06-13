@@ -6,13 +6,17 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:49:25 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/12 13:18:40 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 09:38:49 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Animal.hpp"
 
 Animal::Animal() : _type("Default") {
+	std::cout << "Animal: \"" << _type << "\" Created" << std::endl;
+}
+
+Animal::Animal(std::string name) : _type(name) {
 	std::cout << "Animal: \"" << _type << "\" Created" << std::endl;
 }
 

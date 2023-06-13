@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:28:31 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/12 11:16:41 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 09:47:42 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ class Animal {
 	virtual ~Animal();
 	Animal(const Animal &animal);
 	Animal &operator=(const Animal &animal);
+	Animal(std::string type);
     //The Functions
 	std::string getType() const;
 	virtual void makeSound() const;

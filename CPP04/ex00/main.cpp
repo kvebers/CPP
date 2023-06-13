@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:17:28 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/12 14:01:22 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 09:50:56 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,5 +17,8 @@ int main()
 {
     {
         Animal animal;
+        Animal *animal1 = new Cat();
+        animal1->makeSound();
+        delete animal1;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:49:31 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/12 13:48:32 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 09:49:37 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Cat: public Animal{
         ~Cat();
         Cat &operator=(const Cat &cat);
         Cat(const Animal &cat);
-    private:
+        virtual void makeSound() const;
     
 };
 
