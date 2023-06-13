@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/11 09:49:22 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 11:52:15 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/13 15:36:00 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ Cat &Cat::operator=(const Cat &cat) {
 	if (this == &cat) return *this;
 	std::cout << "Cat coppied" << std::endl;
 	Animal::operator=(cat);
+	
 	return *this;
 }
 
