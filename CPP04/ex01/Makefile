@@ -1,11 +1,9 @@
-NAME = braindmg
+NAME = inception
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Animal.cpp \
 		Dog.cpp \
-		Cat.cpp \
-		WrongCat.cpp \
-		WrongAnimal.cpp 
+		Cat.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
