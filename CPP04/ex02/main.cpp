@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:17:28 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/17 17:26:18 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/17 17:29:13 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,16 @@
 int main() {
 	{
 		// Animal animal; // Uncomment when testing Cannot implement since there is unitialized pure
-		//// virual value compiler error
+		// // virual value compiler error
+		// Animal *animal = new Animal();
 		Cat cat;
 		Dog dog;
 		Animal *animal1 = new Cat();
 		Animal *animal2 = new Dog();
 		dog.makeSound();
 		cat.makeSound();
-		std::cout << "Umm this segfaults" << std::endl;
+		animal1->makeSound();
+		animal2->makeSound();
 		delete animal1;
 		delete animal2;
 	}

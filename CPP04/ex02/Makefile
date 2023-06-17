@@ -1,4 +1,4 @@
-NAME = inception
+NAME = momentum
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Animal.cpp \
