@@ -1,27 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/11 09:49:31 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 11:52:12 by kvebers          ###   ########.fr       */
+/*   Created: 2023/06/09 12:20:01 by kvebers           #+#    #+#             */
+/*   Updated: 2023/06/11 07:46:00 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-#define CAT_HPP
+#ifndef SCAVTRAP_H
+#define SCAVTRAP_H
 
-#include "Animal.hpp"
+#include "ClapTrap.hpp"
 
-class Cat : public Animal {
+class ScavTrap : public ClapTrap {
+   private:
    public:
-	Cat();
-	~Cat();
-	Cat &operator=(const Cat &cat);
-	Cat(const Animal &cat);
-	virtual void makeSound() const;
+	ScavTrap();
+	ScavTrap(ScavTrap const &trap);
+	~ScavTrap();
+	ScavTrap(const std::string &name);
+	ScavTrap &operator=(ScavTrap &trap);
+	// Functions to update and implement
+	void guardGate();
+	void attack(const std::string &target);
 };
+
+std::ostream &operator<<(std::ostream &os, ScavTrap &trap);
 
 #endif

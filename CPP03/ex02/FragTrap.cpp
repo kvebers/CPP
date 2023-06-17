@@ -6,51 +6,52 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/09 17:44:52 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/11 07:45:48 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/17 10:47:48 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
+FragTrap::FragTrap() : ClapTrap("FRAGTRAP") {
+	std::cout << "The FragTrap: " << _name
+			  << " has been created, long live the FragTrap, that is special to FRAGTRAP"
+			  << std::endl;
+	_name = "Default";
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
+	return;
+}
+
 FragTrap::FragTrap(const std::string &name) : ClapTrap(name) {
-	std::cout << "FragTrap: " << this->_name
+	std::cout << "FragTrap: " << _name
 			  << " Parameterized Constructor has been called, that is special to FRAGTRAP"
 			  << std::endl;
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_attackDamage = 30;
+	_hitPoints = 100;
+	_energyPoints = 100;
+	_attackDamage = 30;
 	return;
 }
 
 FragTrap::FragTrap(const FragTrap &trap) : ClapTrap("FRAGTRAP") {
-	_hitPoints = 100;
-	_energyPoints = 100;
-	_attackDamage = 30;
+	_hitPoints = trap._hitPoints;
+	_energyPoints = trap._energyPoints;
+	_attackDamage = trap._attackDamage;
+	_name = trap._name;
 	std::cout << "FragTrap: " << _name
-			  << " Parameterized Constructor has been called, that is special to FRAGTRAP"
+			  << " Copy Constructor has been called, that is special to FRAGTRAP"
 			  << std::endl;
-	return;
-}
-
-FragTrap::FragTrap() : ClapTrap("FRAGTRAP") {
-	std::cout << "The FragTrap: " << this->_name
-			  << " has been created, long live the FragTrap, that is special to FRAGTRAP"
-			  << std::endl;
-	this->_name = "Default";
-	this->_hitPoints = 100;
-	this->_energyPoints = 100;
-	this->_attackDamage = 30;
 	return;
 }
 
 FragTrap::~FragTrap() {
-	std::cout << "The FragTrap " << this->_name
+	std::cout << "The FragTrap " << _name
 			  << " has been destoryed for ever, that is special to FRAGTRAP" << std::endl;
 	return;
 }
 
 FragTrap &FragTrap::operator=(FragTrap &trap) {
-	std::cout << "FragTrap:  " << this->_name
+	std::cout << "FragTrap:  " << _name
 			  << " COpy assigment opperator has been called, that is special to FRAGTRAP"
 			  << std::endl;
 	if (this == &trap) return *this;
