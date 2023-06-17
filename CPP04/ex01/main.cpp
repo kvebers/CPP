@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/12 11:17:28 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 15:34:04 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/17 15:44:08 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 
 int main() {
 	{
+		std::cout << "====================TEST 0=========================" << std::endl
+				  << std::endl;
 		int cnt = 0;
 		int modify_to_change_test = 50;
 		Animal **animal = new Animal *[modify_to_change_test];
@@ -35,12 +37,28 @@ int main() {
 		}
 		delete[] animal;
 	}
+	std::cout << "Leaks" << std::endl;
+	system("leaks inception");
 	{
-	
-		Cat cat = Cat();
+		std::cout << "====================TEST 1=========================" << std::endl
+				  << std::endl;
+		Cat cat;
+		Cat cat1 = cat;
+		Cat cat2(cat);
+		cat.printIdea(0);
+		cat1.printIdea(0);
+		cat2.printIdea(0);
 		cat.setIdea(0, "Test");
+		std::cout << std::endl<<"I am modifying ideas here to check for the deep copy" << std::endl << std::endl;
 		cat.printIdea(0);
-		Cat cat1(cat);
-		cat.printIdea(0);
+		cat1.printIdea(0);
+		cat2.printIdea(0);
+		cat.setIdea(0, "new idea");
+		Cat cat3(cat);
+		cat3.printIdea(0);
+		Cat cat4 = cat;
+		cat4.printIdea(0);
 	}
+	std::cout << "Leaks" << std::endl;
+	system("leaks inception");
 }

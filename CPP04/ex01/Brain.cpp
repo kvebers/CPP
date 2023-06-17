@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/13 12:33:24 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/13 15:29:22 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/17 16:36:58 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,20 @@ Brain::~Brain() { std::cout << "Brain Destroyed" << std::endl; }
 
 Brain::Brain(const Brain &brain) {
 	int cnt = 0;
+
+	std::cout << "Brain Created from another brain" << std::endl;
 	while (cnt < 100) {
-		_ideas[cnt] =  brain._ideas[cnt];
+		_ideas[cnt] = brain._ideas[cnt];
 		cnt++;
-	} 
+	}
 }
 
 Brain &Brain::operator=(const Brain &brain) {
 	int cnt = 0;
 	if (this == &brain) return *this;
+	std::cout << "Brain copy asigment created" << std::endl;
 	while (cnt < 100) {
-		this->_ideas[cnt] = brain._ideas[cnt];
+		_ideas[cnt] = brain._ideas[cnt];
 		cnt++;
 	}
 	return *this;
