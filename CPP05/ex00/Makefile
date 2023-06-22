@@ -1,4 +1,4 @@
-NAME = braindmg
+NAME = sounds_fun________no
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Animal.cpp \
