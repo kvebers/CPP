@@ -1,7 +1,8 @@
-NAME = sounds_fun________no
+NAME = on_your_feet_maggot
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		Bureaucrat.cpp
+		Bureaucrat.cpp \
+		Form.cpp
 			
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

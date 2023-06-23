@@ -3,6 +3,9 @@
 
 #include <iostream>
 
+#include "Form.hpp"
+class Form;
+
 class Bureaucrat {
    public:
 	// ORTHODOX STUFF
@@ -11,18 +14,21 @@ class Bureaucrat {
 	Bureaucrat &operator=(const Bureaucrat &word_i_can_spell);
 	Bureaucrat(const Bureaucrat &word_i_can_spell);
 	Bureaucrat(std::string name, int grade);
+	// getters
+	const std::string &getName() const;
+	int getGrade() const;
+	// functions
 	void decrementGrade();
 	void incrementGrade();
-	int getGrade() const;
-	const std::string &getName() const;
+	void signForm(Form &form);
 
 	class GradeTooLowException : public std::exception {
 	   public:
-		const char *error() const throw();
+		const char *what() const throw();
 	};
 	class GradeTooHighException : public std::exception {
 	   public:
-		const char *error() const throw();
+		const char *what() const throw();
 	};
 
    private:
