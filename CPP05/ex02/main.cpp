@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:55:57 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/23 14:06:48 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/25 11:20:01 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,6 @@
 
 int main() {
 	{
-		AForm form;
-		Bureaucrat b;
-		AForm form1;
-		b.signForm(form);
-		b.decrementGrade();
-		std::cout << b << std::endl;
-		b.signForm(form1);
-		AForm form2("form", 101, 101);
-		b.signForm(form2);
+		
 	}
 }

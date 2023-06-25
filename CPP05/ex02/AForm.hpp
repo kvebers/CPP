@@ -34,7 +34,7 @@ class AForm {
 	//functions
 	void beSigned(const Bureaucrat &word_i_can_spell);
 	virtual void execute(Bureaucrat const &word_i_can_spell) const = 0;
-	
+
 	class GradeTooLowException : public std::exception {
 	   public:
 		const char *what() const throw();
