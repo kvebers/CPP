@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:55:57 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/28 13:09:20 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/28 13:35:24 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ int main() {
 		} catch (const std::exception &e) {
 			std::cout << "Problem occurred: " << e.what() << std::endl;
 		}
-		system("cat tree_shrubbery");
+		system("cat Default_shrubbery");
 		std::cout << std::endl;
 		delete form;
 	}
