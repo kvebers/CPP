@@ -6,23 +6,29 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 16:35:56 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/25 12:45:54 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/28 09:35:21 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SHRUBBERYCREATIONFORM_HPP
 #define SHRUBBERYCREATIONFORM_HPP
 
+#include <fstream>
+
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : AForm {
+class ShrubberyCreationForm : public AForm {
    public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string &target);
 	virtual ~ShrubberyCreationForm();
-    ShrubberyCreationForm(const ShrubberyCreationForm &idk);
+	ShrubberyCreationForm(const ShrubberyCreationForm &idk);
 	ShrubberyCreationForm &operator=(const ShrubberyCreationForm &idk);
 
+	class CanNotOpenFile : public std::exception {
+	   public:
+		const char *what() const throw();
+	};
 	void execute(Bureaucrat const &execute) const;
 
    private:

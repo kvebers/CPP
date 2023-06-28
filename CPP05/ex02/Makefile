@@ -1,9 +1,12 @@
-NAME = on_your_feet_maggot
+NAME = tree
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		Bureaucrat.cpp \
-		Form.cpp
-			
+		AForm.cpp \
+		ShrubberyCreationForm.cpp
+		# 		PresidentialPardonForm.cpp \
+		# RobotomyRequestForm.cpp \
+
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
 

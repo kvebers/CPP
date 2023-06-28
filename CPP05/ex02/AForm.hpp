@@ -22,7 +22,7 @@ class AForm {
    public:
 	// ORTHODOX STUFF
 	AForm();
-	~AForm();
+	virtual ~AForm();
 	AForm &operator=(const AForm &word_i_can_spell);
 	AForm(const AForm &word_i_can_spell);
 	AForm(const std::string name, const int execute, const int sign);
@@ -40,6 +40,11 @@ class AForm {
 		const char *what() const throw();
 	};
 	class GradeTooHighException : public std::exception {
+	   public:
+		const char *what() const throw();
+	};
+
+	class NotSignedException : public std::exception {
 	   public:
 		const char *what() const throw();
 	};

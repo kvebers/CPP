@@ -6,13 +6,11 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/22 11:32:42 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/25 11:35:33 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/28 12:05:56 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-
-#include <exception>
 
 Bureaucrat::Bureaucrat() : _name("Default"), _grade(100) { std::cout << "Problem" << std::endl; }
 
@@ -75,9 +73,9 @@ void Bureaucrat::signForm(AForm &aform) {
 void Bureaucrat::executeForm(AForm const &aform) const {
 	try {
 		aform.execute(*this);
-		std::cout << "Bureaucrat " << _name << "executed form " << aform.getName() << std::endl;
+		std::cout << "Bureaucrat " << _name << "executed problem " << aform.getName() << std::endl;
 	} catch (const std::exception &e) {
-		std::cout << "Bureaucrat " << _name << "could not execute the form" << aform.getName()
+		std::cout << "Bureaucrat " << _name << "could not execute the problem" << aform.getName()
 				  << std::endl;
 	}
 }

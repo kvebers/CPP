@@ -64,6 +64,8 @@ const char *AForm::GradeTooHighException::what() const throw() { return "Grade i
 
 const char *AForm::GradeTooLowException::what() const throw() { return "Grade is too low!"; }
 
+const char *AForm::NotSignedException::what() const throw() { return "The document is not signed"; }
+
 // ostream overide
 std::ostream &operator<<(std::ostream &os, const AForm &AForm) {
 	os << "Name: " << AForm.getName() << ", Grade To Execute: " << AForm.getGradeToExecute()
