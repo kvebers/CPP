@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 13:34:29 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/28 13:52:09 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/28 15:29:01 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ Intern::~Intern() {
 
 Intern::Intern(const Intern &idk){
 	std::cout << "Intern Porblem copy has been made" << std::endl;
+	(void) idk; //compilation trash i **** life please help me
 }
 
 Intern &Intern::operator=(const Intern &idk) {
