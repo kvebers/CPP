@@ -6,89 +6,80 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/21 13:55:57 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/28 13:35:24 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/06/29 21:14:59 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <exception>
 
 #include "AForm.hpp"
-#include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "Intern.hpp"
 
 int main() {
 	{
-		std::cout << std::endl << "TEST1" << std::endl << std::endl;
-		Bureaucrat bureaucrat("PROBLEM", 137);
-		ShrubberyCreationForm form("tree");
+		std::cout << std::endl << "TEST 1" << std::endl << std::endl;
+		Intern intern;
+		Bureaucrat bureaucrat;
+
 		try {
-			form.execute(bureaucrat);
+			AForm *shrubberyProblem = intern.makeForm("ShrubberyCreationForm", "problem");
+			bureaucrat.signForm(*shrubberyProblem);
+			delete shrubberyProblem;
 		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
+			std::cout << "Problem happened: " << e.what() << std::endl;
 		}
-		try {
-			bureaucrat.signForm(form);
-		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
-		}
-		try {
-			form.execute(bureaucrat);
-		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
-		}
-		system("cat tree_shrubbery");
-		std::cout << std::endl;
 	}
 	{
-		std::cout << std::endl << "TEST2" << std::endl << std::endl;
-		Bureaucrat bureaucrat("PROBLEM", 137);
-		AForm *form = new ShrubberyCreationForm();
+		std::cout << std::endl << "TEST 2" << std::endl << std::endl;
+		Intern intern;
+		Bureaucrat bureaucrat;
+
 		try {
-			bureaucrat.signForm(*form);
+			AForm *shrubberyProblem = intern.makeForm("RobotomyRequestForm", "problem");
+			bureaucrat.signForm(*shrubberyProblem);
+			delete shrubberyProblem;
 		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
+			std::cout << "Problem happened: " << e.what() << std::endl;
 		}
-		try {
-			form->execute(bureaucrat);
-		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
-		}
-		system("cat Default_shrubbery");
-		std::cout << std::endl;
-		delete form;
 	}
 	{
-		std::cout << std::endl << "TEST3" << std::endl << std::endl;
-		Bureaucrat bureaucrat("PROBLEM", 4);
-		AForm *form = new PresidentialPardonForm();
+		std::cout << std::endl << "TEST 3" << std::endl << std::endl;
+		Intern intern;
+		Bureaucrat bureaucrat;
+
 		try {
-			bureaucrat.signForm(*form);
+			AForm *shrubberyProblem = intern.makeForm("PresidentialPardonForm", "problem");
+			bureaucrat.signForm(*shrubberyProblem);
+			delete shrubberyProblem;
 		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
+			std::cout << "Problem happened: " << e.what() << std::endl;
 		}
-		try {
-			form->execute(bureaucrat);
-		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
-		}
-		delete form;
 	}
 	{
-		std::cout << std::endl << "TEST4" << std::endl << std::endl;
-		Bureaucrat bureaucrat("PROBLEM", 4);
-		AForm *form = new RobotomyRequestForm();
+		std::cout << std::endl << "TEST 4" << std::endl << std::endl;
+		Intern intern;
+		Bureaucrat bureaucrat;
+
 		try {
-			bureaucrat.signForm(*form);
+			AForm *shrubberyProblem = intern.makeForm("PROBLEM", "problem");
+			bureaucrat.signForm(*shrubberyProblem);
+			delete shrubberyProblem;
 		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
+			std::cout << "Problem happened: " << e.what() << std::endl;
 		}
-		try {
-			form->execute(bureaucrat);
-		} catch (const std::exception &e) {
-			std::cout << "Problem occurred: " << e.what() << std::endl;
-		}
-		delete form;
 	}
+	{
+		std::cout << std::endl << "TEST 5" << std::endl << std::endl;
+		Intern intern;
+		Bureaucrat bureaucrat;
+
+		try {
+			AForm *shrubberyProblem = intern.makeForm("", "");
+			bureaucrat.signForm(*shrubberyProblem);
+			delete shrubberyProblem;
+		} catch (const std::exception &e) {
+			std::cout << "Problem happened: " << e.what() << std::endl;
+		}
+	}
+	std::cout << std::endl << "NO PROBLEMS, Life is gut" << std::endl << std::endl;
 }

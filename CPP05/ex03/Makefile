@@ -5,7 +5,8 @@ SRC =	main.cpp \
 		AForm.cpp \
 		ShrubberyCreationForm.cpp \
 		PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp
+		RobotomyRequestForm.cpp \
+		Intern.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
