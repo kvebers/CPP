@@ -1,12 +1,7 @@
 NAME = problem_maker
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		Bureaucrat.cpp \
-		AForm.cpp \
-		ShrubberyCreationForm.cpp \
-		PresidentialPardonForm.cpp \
-		RobotomyRequestForm.cpp \
-		Intern.cpp
+		ScalarConverter.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
