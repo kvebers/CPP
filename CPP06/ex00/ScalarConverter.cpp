@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:01:20 by kvebers           #+#    #+#             */
-/*   Updated: 2023/06/30 12:42:53 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/07/01 08:14:22 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ ScalarConverter::ScalarConverter(const ScalarConverter &idk) {
 // OTHER STUFF
 
 void ScalarConverter::convertChar(const std::string &input) {
+	try
+	{
 	if (input.length() == 1) {
 		if (std::isprint(input[0]))
 			std::cout << "char: " << input[0] << std::endl;
@@ -44,6 +46,7 @@ void ScalarConverter::convertChar(const std::string &input) {
 	} else {
 		std::cout << "char: impossible" << std::endl;
 	}
+	} catch (const std::exception &e) {}
 }
 
 void ScalarConverter::convertDouble(const std::string &input) {
