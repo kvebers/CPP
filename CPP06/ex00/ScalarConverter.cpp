@@ -6,12 +6,13 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:01:20 by kvebers           #+#    #+#             */
-/*   Updated: 2023/07/01 08:14:22 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/07/10 17:04:20 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
+#include <cstring>
 #include <exception>
 #include <iomanip>
 #include <string>
@@ -75,9 +76,9 @@ void ScalarConverter::convertInt(const std::string &input) {
 	}
 }
 
+
+
 void ScalarConverter::convert(const std::string &input) {
-	convertChar(input);
-	convertInt(input);
-	convertFloat(input);
-	convertDouble(input);
+	if (std::strlen(input) == 1)
+		return std::literals
 }

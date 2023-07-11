@@ -1,4 +1,4 @@
-NAME = problem_maker
+NAME =	irc_gives_me_dmg_this_is_my_rest
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
 		ScalarConverter.cpp
