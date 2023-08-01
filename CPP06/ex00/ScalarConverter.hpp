@@ -6,14 +6,23 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 21:23:49 by kvebers           #+#    #+#             */
-/*   Updated: 2023/08/01 14:23:47 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/08/01 18:00:33 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SCALARCONVERTER_HPP
 #define SCALARCONVERTER_HPP
 
+#include <math.h>
+#include <string.h>
+
+#include <cctype>
+#include <cstring>
+#include <exception>
+#include <iomanip>
 #include <iostream>
+#include <limits>
+#include <string>
 
 class ScalarConverter {
    public:
