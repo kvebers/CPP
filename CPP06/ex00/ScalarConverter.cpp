@@ -6,7 +6,7 @@
 /*   By: kvebers <kvebers@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/30 11:01:20 by kvebers           #+#    #+#             */
-/*   Updated: 2023/08/01 19:35:37 by kvebers          ###   ########.fr       */
+/*   Updated: 2023/08/02 12:53:33 by kvebers          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,8 @@ void ScalarConverter::convert(const std::string &input) {
 	std::string intException;
 
 	if (input.length() == 0) CustomException("Input is empty");
-	if (input.compare("+inf") == 0 || input.compare("+inff") == 0) {
+	if (input.compare("+inf") == 0 || input.compare("+inff") == 0 || input.compare("inff") == 0 ||
+		input.compare("inf") == 0) {
 		std::cout << "char : impossible" << std::endl
 				  << "int : impossible" << std::endl
 				  << "float : inff" << std::endl
