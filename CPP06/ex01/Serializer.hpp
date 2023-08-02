@@ -12,8 +12,6 @@ class Serializer {
 	~Serializer();
 	Serializer &operator=(const Serializer &idk);
 	Serializer(const Serializer &idk);
-
-   private:
 	static uintptr_t serialize(Data *ptr);
 	static Data *deserialize(uintptr_t raw);
 };
