@@ -1,7 +1,7 @@
 NAME =	finally_done_with_irc
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		ScalarConverter.cpp
+		Serializer.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

@@ -3,6 +3,9 @@
 
 #include <iostream>
 
-
+struct Data {
+	int serializeInt;
+	double serializeDouble;
+};
 
 #endif
