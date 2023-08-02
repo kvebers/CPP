@@ -1,7 +1,6 @@
-NAME =	finally_done_with_irc
+NAME =	back_to_c_plus_pain
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp \
-		.cpp
+SRC =	main.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
