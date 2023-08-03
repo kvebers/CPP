@@ -1,7 +1,6 @@
 NAME =	Class_la_vista_baby
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp \
-		Templates.cpp
+SRC =	main.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

@@ -41,10 +41,29 @@ class Array {
 	~Array() { delete[] _array; }
 	// ADDITIONAL FUNCTIONS
 	T &operator[](unsigned int id) {
-		if (id >= _len) throw std::logic_error("Hasta la vista, baby");
+		if (id >= _len) throw std::logic_error("Hasta la vista, error");
 		return _array[id];
 	}
 
-	unsigned int getLen() const { return _len; }
+	unsigned int size() const { return _len; }
+
+	int find_first(int numb) const {
+		for (int cnt = 0; cnt < _len; cnt++) {
+			if (static_cast<int>(_array[cnt]) == numb) return cnt;
+		}
+		return (-1);
+	}
+
+	int find_biggest() const {
+		int temp = 0;
+		if (_len > 0)
+			temp = _array[0];
+		else
+			temp = -1;
+		for (int cnt = 0; cnt < _len; cnt++) {
+			if (static_cast<int>(_array[cnt]) > static_cast<int>(_array[temp])) temp = cnt;
+		}
+		return (temp);
+	}
 };
 #endif
