@@ -1,4 +1,4 @@
-NAME =	iterminator
+NAME =	i_voluteer_as_template
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp
 
@@ -10,9 +10,6 @@ all: $(NAME)
 $(NAME): $(SRC_O)
 		c++ $(CFLAGS) $(SRC_O) -o $(NAME)
 
-%.o: %.cpp
-		c++ $(CFLAGS) -c $< -o $@
-
 clean:
 		$(RM) $(SRC_O)
 
@@ -21,4 +18,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean all re

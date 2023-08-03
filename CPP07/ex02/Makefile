@@ -1,6 +1,7 @@
-NAME =	iterminator
+NAME =	Class_la_vista_baby
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp
+SRC =	main.cpp \
+		Templates.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
@@ -10,9 +11,6 @@ all: $(NAME)
 $(NAME): $(SRC_O)
 		c++ $(CFLAGS) $(SRC_O) -o $(NAME)
 
-%.o: %.cpp
-		c++ $(CFLAGS) -c $< -o $@
-
 clean:
 		$(RM) $(SRC_O)
 
@@ -21,4 +19,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: clean fclean all re
