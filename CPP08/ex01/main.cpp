@@ -1,7 +1,4 @@
-#include <unistd.h>
 
-#include <exception>
-#include <iostream>
 
 #include "Span.hpp"
 
@@ -10,15 +7,7 @@ int main() {
 		std::cout << std::endl << "TEST 1 " << std::endl << std::endl;
 		int test_cases = 10000;	 // SWITCH THIS TO INCREASE OR DECREASE THE TEST SIZE DEFAULT 10000;
 		Span spam(test_cases + 1);
-		srand(time(0));
-		for (int cnt = 0; cnt < test_cases; cnt++) {
-			int number =
-				rand() % (test_cases * test_cases *
-						  10);	// just ...........................................................
-			spam.addNumber(number);
-			std::cout << number << " ";
-		}
-
+		spam.addSpan(test_cases);
 		std::cout << std::endl << "STARTING THE SEND ALGORITHM..." << std::endl << std::endl;
 		std::cout << "Longest SPAM : " << spam.longestSpan() << std::endl;
 		std::cout << "Shortest SPAM : " << spam.shortestSpan() << std::endl;
@@ -80,7 +69,15 @@ int main() {
 		sp.addNumber(11);
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
-		return 0;
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		std::cout << std::endl << "TEST 7 " << std::endl << std::endl;
+		Span sp(1000);
+		std::cout << sp.getSize() << std::endl;
+		sp.addSpan(999);
+		std::cout << sp.getSize() << std::endl;
 	} catch (std::exception& e) {
 		std::cout << e.what() << std::endl;
 	}

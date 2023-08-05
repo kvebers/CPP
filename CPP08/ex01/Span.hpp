@@ -1,6 +1,8 @@
 #ifndef SPAM_HPP
 #define SPAM_HPP
 
+#include <unistd.h>
+
 #include <algorithm>
 #include <exception>
 #include <iostream>
@@ -28,6 +30,7 @@ class Span {
 	void addNumber(int numb);
 	int longestSpan();
 	int shortestSpan();
+	void addSpan(unsigned int numb);
 
    private:
 	unsigned int _maxLen;

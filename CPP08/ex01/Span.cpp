@@ -56,9 +56,20 @@ int Span::shortestSpan() {
 		value = *iterator - previousValue;
 		if (temp > value) {
 			temp = value;
-			// std::cout << previousValue << " " << *iterator << std::endl;uncomment for testing purposed I had brain dmg after this
+			if (temp == 0) return temp;
+			// std::cout << previousValue << " " << *iterator << std::endl;uncomment for testing
+			// purposed I had brain dmg after this
 		}
 		previousValue = *iterator;
 	}
 	return temp;
+}
+
+void Span::addSpan(unsigned int numb) {
+	srand(time(0));
+	for (int cnt = 0; cnt < numb; cnt++) {
+		int number = rand() % (numb * numb * 10);
+		addNumber(number);
+		// std::cout << number << " "; // TESTING 
+	}
 }
