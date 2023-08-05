@@ -1,4 +1,4 @@
-NAME =	Class_la_vista_baby
+NAME =	Easy_Money_II_Hard_to_Kill_2012
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp
 

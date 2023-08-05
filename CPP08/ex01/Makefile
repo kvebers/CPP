@@ -1,6 +1,7 @@
-NAME =	Class_la_vista_baby
+NAME =	your_email_is_full_with_span
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp
+SRC =	main.cpp \
+		Span.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

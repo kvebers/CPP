@@ -1,4 +1,4 @@
-NAME =	Class_la_vista_baby
+NAME =	My_brain_mutaded_and_recived_dmg
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp
 
