@@ -18,13 +18,18 @@ class BitcoinExchange {
 	BitcoinExchange &operator=(const BitcoinExchange &idk);
 	BitcoinExchange(const BitcoinExchange &idk);
 	~BitcoinExchange();
+	static int months[12];
 
    private:
 	std::map<int, double> _bitcoinMap;
 	void fillTheMap();
 	std::string _database;
 	bool checkFiles(std::string &fileName);
-	int converToDays(std::string year, std::string month, std::string day);
+	int converToDays(int years, int months, int days);
+	int add_months(int month, int years);
+	void checkInput(int years, int month, int days, int cnt);
+	int getDate(std::string &line, int cnt);
+	void test();
 };
 
 #endif
