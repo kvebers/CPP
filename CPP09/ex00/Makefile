@@ -1,6 +1,7 @@
-NAME =	Bitconeeeeeectttttt_wasa_waswa_wasap
+NAME =	btc
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp
+SRC =	main.cpp \
+		BitcoinExchange.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f

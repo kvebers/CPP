@@ -1,17 +1,18 @@
-#include <algorithm>
-#include <iostream>
-#include <map>
-#include <string>
+#include <exception>
 
-void fillTheMap()
-{
-	
-}
+#include "BitcoinExchange.hpp"
 
-int main(int argc, char **argv) {
-	if (argc != 2) std::cerr << "Wrong number of arguments " << std::endl;
-	std::map<std::string, double> bitcoinMap;
+// void processMap(const std::map<std::string, int>& myMap) {
+int main(int argc, char** argv) {
+	if (argc != 2) {
+		std::cerr << "PLEASE STOP, LEAVE ME ALONE" << std::endl;
+		return 1;
+	}
 	try {
-	} catch (std::exception &e) {
+		std::string input = argv[1];
+		BitcoinExchange IStoleYourLogTime(input);
+		IStoleYourLogTime.start();
+	} catch (std::exception& e) {
+		std::cerr << e.what() << std::endl;
 	}
 }
