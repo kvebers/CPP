@@ -4,10 +4,12 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <iterator>
 #include <map>
 #include <sstream>
 #include <stdexcept>
 #include <string>
+#include <utility>
 
 class BitcoinExchange {
    public:
@@ -30,7 +32,7 @@ class BitcoinExchange {
 	void checkInput(int years, int month, int days, std::string &line);
 	int getDate(std::string &line);
 	void analyzeTheData();
-	int getAmount(std::string &line);
+	float getAmount(std::string &line);
 };
 
 #endif
