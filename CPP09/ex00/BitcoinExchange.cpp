@@ -126,8 +126,8 @@ void BitcoinExchange::analyzeTheData() {
 }
 
 void BitcoinExchange::start() {
-	if (!checkFiles(_database)) throw std::runtime_error("Error: can not opern database");
-	if (!checkFiles(_input)) throw std::runtime_error("Error: can not opern input");
+	if (!checkFiles(_database)) throw std::runtime_error("Error: can not open database");
+	if (!checkFiles(_input)) throw std::runtime_error("Error: can not open input");
 	fillTheMap();
 	analyzeTheData();
 }

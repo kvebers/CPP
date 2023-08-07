@@ -1,6 +1,7 @@
-NAME =	Easy_Money_II_Hard_to_Kill_2012
+NAME =	RPN
 CFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC =	main.cpp
+SRC =	main.cpp \
+		RPN.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
