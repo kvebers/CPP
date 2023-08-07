@@ -66,16 +66,14 @@ int BitcoinExchange::getDate(std::string &line) {
 }
 
 void BitcoinExchange::fillTheMap() {
-	int cnt = 2;
 	std::string line;
 	std::ifstream inputFile(_database);
 	getline(inputFile, line);
 	while (getline(inputFile, line)) {
-		std::string errorString = "Error: Input at line is incorrect " + std::to_string(cnt);
+		std::string errorString = "Error: Database inpit incorrect: " + line;
 		double value = std::stod(line.substr(11, line.size()));
 		if (value == 0 && line[11] != '0') throw std::logic_error(errorString);
 		_bitcoinMap.insert(std::make_pair(getDate(line), value));
-		cnt++;
 	}
 }
 
@@ -85,7 +83,8 @@ bool BitcoinExchange::checkFiles(std::string &fileName) {
 }
 
 int BitcoinExchange::getAmount(std::string &line) {
-	if (line.size() < 13) throw std::logic_error("No integer input");
+	if (line.size() < 13) throw std::logic_error("Error: No integer input");
+	if (line.size() > 23) throw std::logic_error("Error: Line too long");
 	if (line[10] != ' ' || line[11] != '|' || line[12] != ' ')
 		throw std::logic_error("Error: bad spacing");
 	return 1;
