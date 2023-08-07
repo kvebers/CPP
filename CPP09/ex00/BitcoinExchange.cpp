@@ -1,5 +1,9 @@
 #include "BitcoinExchange.hpp"
 
+#include <cctype>
+#include <exception>
+#include <stdexcept>
+
 int BitcoinExchange::months[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 BitcoinExchange::BitcoinExchange() {}
@@ -69,23 +73,33 @@ void BitcoinExchange::fillTheMap() {
 		double value = std::stod(line.substr(11, line.size() - 11));
 		int date = getDate(line);
 		if (value == 0 && line[11] != '0') throw std::logic_error(errorString);
-		std::cout << date << " " << value << std::endl;
 		_bitcoinMap.insert(std::make_pair(date, value));
 	}
 }
 
 bool BitcoinExchange::checkFiles(std::string &fileName) {
 	std::ifstream inputFile(fileName);
+	if (fileName.size() < 5) throw std::logic_error("incorrect file format");
+	if (fileName[fileName.size() - 1] != 'v' || fileName[fileName.size() - 2] != 's' ||
+		fileName[fileName.size() - 3] != 'c' || fileName[fileName.size() - 4] != '.')
+		throw(std::logic_error("incorrect file format"));
 	return inputFile.good();
 }
 
 float BitcoinExchange::getAmount(std::string &line) {
-	if (line.size() < 13) throw std::logic_error("Error: No integer input");
+	if (line.size() < 13) throw std::logic_error("Error: No multiplayer input");
 	if (line.size() > 24) throw std::logic_error("Error: Line too long");
 	if (line[10] != ' ' || line[11] != '|' || line[12] != ' ')
 		throw std::logic_error("Error: bad spacing");
 	std::string substring = line.substr(13, line.size() - 13);
-	return (std::stof(substring));
+	if (substring[0] == '-') throw std::logic_error("Can not have negative numbers");
+	if (!std::isdigit(substring[0])) throw std::logic_error("Error: Bad input =>" + line);
+	float floatMultiplayer = std::stof(substring);
+	if (floatMultiplayer == 0 && line.size() > 13 && line[13] != 0)
+		throw std::logic_error("Error: Bad input =>" + line);
+	if (floatMultiplayer < 0) throw std::logic_error("Value it too low");
+	if (floatMultiplayer > 1000) throw std::logic_error("value is too high");
+	return (floatMultiplayer);
 }
 
 void BitcoinExchange::analyzeTheData() {
@@ -98,10 +112,9 @@ void BitcoinExchange::analyzeTheData() {
 			std::map<int, double>::reverse_iterator it;
 			int date = getDate(line);
 			float multiplay = getAmount(line);
-			// std::cout << " Date + multiplay test:" << date << " " << multiplay << std::endl;
 			for (it = _bitcoinMap.rbegin(); it != _bitcoinMap.rend(); it++) {
 				if (date >= it->first) {
-					std::cout << line.substr(0, 10) << " ==> " << multiplay * it->second
+					std::cout << line.substr(0, 10) << " => " << multiplay * it->second
 							  << std::endl;
 					break;
 				}
@@ -116,8 +129,5 @@ void BitcoinExchange::start() {
 	if (!checkFiles(_database)) throw std::runtime_error("Error: can not opern database");
 	if (!checkFiles(_input)) throw std::runtime_error("Error: can not opern input");
 	fillTheMap();
-	// for (std::map<int, double>::iterator it = _bitcoinMap.begin(); it != _bitcoinMap.end(); it++) {
-	// 	std::cout << "DATA: " << it->first << " | " << it->second << std::endl;
-	// }
 	analyzeTheData();
 }
