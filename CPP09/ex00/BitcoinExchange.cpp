@@ -33,12 +33,12 @@ int BitcoinExchange::add_months(int month, int years) {
 	return (sum);
 }
 
-void BitcoinExchange::checkInput(int years, int month, int days, int cnt) {
-	std::string error = "wrong date at line " + std::to_string(cnt);
-	if (years < 2009 || years > 2023) throw std::logic_error(error);
-	if (month < 1 || month > 12) throw std::logic_error(error);
+void BitcoinExchange::checkInput(int years, int month, int days, std::string &line) {
+	std::string errorString = "Errror: Bad Input => " + line.substr(0, 10);
+	if (years < 2009 || years > 2023) throw std::logic_error(errorString);
+	if (month < 1 || month > 12) throw std::logic_error(errorString);
 	if (years % 4 == 0 && month == 2 && days > 0 && days < 30) return;
-	if (days < 1 || days > months[month - 1]) throw std::logic_error(error);
+	if (days < 1 || days > months[month - 1]) throw std::logic_error(errorString);
 }
 
 int BitcoinExchange::converToDays(int years, int months, int days) {
@@ -46,21 +46,22 @@ int BitcoinExchange::converToDays(int years, int months, int days) {
 	return date;
 }
 
-int BitcoinExchange::getDate(std::string &line, int cnt) {
-	std::string errorString = "Input at line is incorrect " + std::to_string(cnt);
-	if (line.size() < 12) throw std::logic_error("wrong size input");
+int BitcoinExchange::getDate(std::string &line) {
+	if (line.size() < 12) throw std::logic_error("Error: bad input => " + line);
 	std::string year = line.substr(0, 4);
 	std::string month = line.substr(5, 2);
 	std::string day = line.substr(8, 2);
 	int years = std::stoi(year);
 	int months = std::stoi(month);
 	int days = std::stoi(day);
+	std::string errorString = "Errror: Bad Input => " + line.substr(0, 10);
 	if (month[1] > '9' || month[1] < '0') throw std::logic_error(errorString);
 	if (day[1] > '9' || day[1] < '0') throw std::logic_error(errorString);
 	std::string value1 = line.substr(4, 1);
 	std::string value2 = line.substr(7, 1);
-	if (value1.compare("-") != 0 || value2.compare("-") != 0) throw std::logic_error(errorString);
-	checkInput(years, months, days, cnt);
+	if (value1.compare("-") != 0 || value2.compare("-") != 0)
+		throw std::logic_error("Error: Not Valid seperator -");
+	checkInput(years, months, days, line);
 	return (converToDays(years, months, days));
 }
 
@@ -70,10 +71,10 @@ void BitcoinExchange::fillTheMap() {
 	std::ifstream inputFile(_database);
 	getline(inputFile, line);
 	while (getline(inputFile, line)) {
-		std::string errorString = "Input at line is incorrect " + std::to_string(cnt);
+		std::string errorString = "Error: Input at line is incorrect " + std::to_string(cnt);
 		double value = std::stod(line.substr(11, line.size()));
 		if (value == 0 && line[11] != '0') throw std::logic_error(errorString);
-		_bitcoinMap.insert(std::make_pair(getDate(line, cnt), value));
+		_bitcoinMap.insert(std::make_pair(getDate(line), value));
 		cnt++;
 	}
 }
@@ -83,16 +84,38 @@ bool BitcoinExchange::checkFiles(std::string &fileName) {
 	return inputFile.good();
 }
 
-void BitcoinExchange::test() {
-	std::map<int, double>::iterator it;
-	for (it = _bitcoinMap.end(); it != _bitcoinMap.begin(); it--) {
-		std::cout << it->first << " -> " << it->second << std::endl;
+int BitcoinExchange::getAmount(std::string &line) {
+	if (line.size() < 13) throw std::logic_error("No integer input");
+	if (line[10] != ' ' || line[11] != '|' || line[12] != ' ')
+		throw std::logic_error("Error: bad spacing");
+	return 1;
+}
+
+void BitcoinExchange::analyzeTheData() {
+	std::string line;
+	std::ifstream inputFile(_input);
+	getline(inputFile, line);
+	if (line.compare("date | value") != 0) throw std::logic_error("Error: wrong data input");
+	while (getline(inputFile, line)) {
+		std::map<int, double>::iterator it;
+		try {
+			int date = getDate(line);
+			int multiplay = getAmount(line);
+			for (it = _bitcoinMap.end(); it != _bitcoinMap.begin(); it--) {
+				if (date >= it->first) {
+					std::cout << line.substr(0, 10) << std::endl;
+					break;
+				}
+			}
+		} catch (std::exception &e) {
+			std::cout << e.what() << std::endl;
+		}
 	}
 }
 
 void BitcoinExchange::start() {
-	if (!checkFiles(_database)) throw std::runtime_error("can not opern database");
-	if (!checkFiles(_input)) throw std::runtime_error("can not opern input");
+	if (!checkFiles(_database)) throw std::runtime_error("Error: can not opern database");
+	if (!checkFiles(_input)) throw std::runtime_error("Error: can not opern input");
 	fillTheMap();
-	test();
+	analyzeTheData();
 }

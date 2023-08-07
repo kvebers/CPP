@@ -27,9 +27,10 @@ class BitcoinExchange {
 	bool checkFiles(std::string &fileName);
 	int converToDays(int years, int months, int days);
 	int add_months(int month, int years);
-	void checkInput(int years, int month, int days, int cnt);
-	int getDate(std::string &line, int cnt);
-	void test();
+	void checkInput(int years, int month, int days, std::string &line);
+	int getDate(std::string &line);
+	void analyzeTheData();
+	int getAmount(std::string &line);
 };
 
 #endif
