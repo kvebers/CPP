@@ -1,9 +1,5 @@
 #include "PmergeMe.hpp"
 
-#include <algorithm>
-#include <stdexcept>
-#include <string>
-#include <vector>
 
 PmergeMe::PmergeMe() {}
 
@@ -38,5 +34,7 @@ void PmergeMe::start() {
 		_theVector.push_back(input);
 		_theDeque.push_back(input);
 	}
+	printVector();
+	fordJohnsonSort(_theVector, _theVector.begin(), _theVector.end());
 	printVector();
 }
