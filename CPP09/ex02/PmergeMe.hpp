@@ -13,6 +13,19 @@
 #include <vector>
 
 template <typename CONT>
+void checkContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end) {
+	typename CONT::iterator itCheck = start;
+	itCheck++;
+	for (; end != itCheck; itCheck++) {
+		if (*itCheck < *start) {
+			std::cout << "Something ain't sorted" << std::endl;
+		}
+		start++;
+	}
+	std::cout << "All sorted" << std::endl;
+}
+
+template <typename CONT>
 void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
 					std::string justTheString) {
 	std::cout << std::endl << justTheString;
@@ -56,6 +69,7 @@ void insertionSort(CONT &cont, typename CONT::iterator start, typename CONT::ite
 	CONT startSide;
 	CONT endSide;
 
+	// printContainer(cont, start, end, "Incersion sort ");  // Uncomment for testing
 	typename CONT::iterator it = start;
 	typename CONT::const_iterator itStartSide = startSide.begin();
 	typename CONT::const_iterator itEndSide = endSide.begin();
@@ -89,6 +103,7 @@ void recursion(CONT &cont, typename CONT::iterator start, typename CONT::iterato
 template <typename CONT>
 void mergeSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
 			   int treshold) {
+	// printContainer(cont, start, end, "Recusion ");  // Uncomment for testing
 	if (std::distance(start, end) > 0) {
 		if (std::distance(start, end) < treshold)
 			insertionSort(cont, start, end);

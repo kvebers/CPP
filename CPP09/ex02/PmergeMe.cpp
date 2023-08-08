@@ -56,4 +56,6 @@ void PmergeMe::start() {
 				   "This is the vector before sorting: ");
 	sortVector();
 	sortDeque();
+	checkContainer(_theVector, _theVector.begin(), _theVector.end());
+	checkContainer(_theDeque, _theDeque.begin(), _theDeque.end());
 }
