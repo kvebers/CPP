@@ -2,6 +2,7 @@
 #define PMERGEME_HPP
 
 #include <algorithm>
+#include <array>
 #include <chrono>
 #include <deque>
 #include <iostream>
@@ -10,8 +11,6 @@
 #include <stdexcept>
 #include <string>
 #include <vector>
-
-#define TRESHOLD 10
 
 template <typename CONT>
 void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
@@ -23,7 +22,8 @@ void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::it
 }
 
 template <typename CONT>
-void fordJohnsonSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end);
+void mergeSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
+			   int treshold);
 
 template <typename CONT>
 void emptySubs(CONT &cont, CONT &leftovers, typename CONT::iterator &it,
@@ -57,8 +57,8 @@ void insertionSort(CONT &cont, typename CONT::iterator start, typename CONT::ite
 	CONT endSide;
 
 	typename CONT::iterator it = start;
-	typename CONT::const_iterator itStartSide = startSide.begin();	// Use const_iterator
-	typename CONT::const_iterator itEndSide = endSide.begin();		// Use const_iterator
+	typename CONT::const_iterator itStartSide = startSide.begin();
+	typename CONT::const_iterator itEndSide = endSide.begin();
 	mergeSubArrays(cont, startSide, endSide, it, itStartSide, itEndSide);
 	emptySubs(cont, startSide, it, itStartSide);
 	emptySubs(cont, endSide, it, itEndSide);
@@ -70,8 +70,7 @@ void merge(CONT &cont, typename CONT::iterator start, typename CONT::iterator mi
 	for (typename CONT::iterator cnt = start + 1; cnt != end; cnt++) {
 		typename CONT::value_type theValue = *cnt;
 		typename CONT::iterator previousCnt = cnt - 1;
-		while (previousCnt >= start && theValue < *previousCnt)	 // Perform Shift of the
-		{
+		while (previousCnt >= start && theValue < *previousCnt) {
 			*(previousCnt + 1) = *previousCnt;
 			previousCnt--;
 		}
@@ -79,20 +78,22 @@ void merge(CONT &cont, typename CONT::iterator start, typename CONT::iterator mi
 	}
 }
 template <typename CONT>
-void recursion(CONT &cont, typename CONT::iterator start, typename CONT::iterator end) {
+void recursion(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
+			   int treshold) {
 	typename CONT::iterator mid = start + std::distance(start, end) / 2;
-	fordJohnsonSort(cont, start, mid);
-	fordJohnsonSort(cont, mid + 1, end);
+	mergeSort(cont, start, mid, treshold);
+	mergeSort(cont, mid + 1, end, treshold);
 	merge(cont, start, mid, end);
 }
 
 template <typename CONT>
-void fordJohnsonSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end) {
+void mergeSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
+			   int treshold) {
 	if (std::distance(start, end) > 0) {
-		if (std::distance(start, end) < TRESHOLD)
+		if (std::distance(start, end) < treshold)
 			insertionSort(cont, start, end);
 		else
-			recursion(cont, start, end);
+			recursion(cont, start, end, treshold);
 	}
 }
 
@@ -108,10 +109,13 @@ class PmergeMe {
    private:
 	char **_input;
 	int _argc;
+	int _treshold;
 	std::vector<unsigned int> _theVector;
 	std::deque<unsigned int> _theDeque;
-	std::list<unsigned int> _theList;
 	void printVector();
+	void sortDeque();
+	void sortVector();
+	void estimateThreshold();
 };
 
 #endif

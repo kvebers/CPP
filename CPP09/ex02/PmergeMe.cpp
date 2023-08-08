@@ -15,6 +15,33 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &idk) {
 
 PmergeMe::PmergeMe(const PmergeMe &idk) : _argc(idk._argc), _input(idk._input) {}
 
+void PmergeMe::sortVector() {
+	clock_t startTime = clock();
+	mergeSort(_theVector, _theVector.begin(), _theVector.end(), _treshold);
+	clock_t endTime = clock();
+	std::cout << std::endl;
+	printContainer(_theVector, _theVector.begin(), _theVector.end(),
+				   "This is the vector after sorting: ");
+	std::cout << std::endl
+			  << std::endl
+			  << "Vector Sort |  Start Time : " << startTime << " End : " << endTime
+			  << " Time Dif: "
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
+}
+
+void PmergeMe::sortDeque() {
+	clock_t startTime = clock();
+	mergeSort(_theDeque, _theDeque.begin(), _theDeque.end(), _treshold);
+	clock_t endTime = clock();
+	std::cout << std::endl
+			  << std::endl
+			  << "Deque Sort |  Start Time : " << startTime << " End : " << endTime << " Time Dif: "
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms"
+			  << std::endl;
+}
+
+void PmergeMe::estimateThreshold() { _treshold = sqrt(sqrt(_theVector.size() - 1)); }
+
 void PmergeMe::start() {
 	for (int cnt = 1; cnt < _argc; cnt++) {
 		int input = std::stoi(_input[cnt]);
@@ -24,14 +51,9 @@ void PmergeMe::start() {
 		_theVector.push_back(input);
 		_theDeque.push_back(input);
 	}
+	estimateThreshold();
 	printContainer(_theVector, _theVector.begin(), _theVector.end(),
 				   "This is the vector before sorting: ");
-	clock_t startTime = clock();
-	fordJohnsonSort(_theVector, _theVector.begin(), _theVector.end());
-	clock_t endTime = clock();
-	printContainer(_theVector, _theVector.begin(), _theVector.end(),
-				   "This is the vector after sorting: ");
-	std::cout << std::endl
-			  << "Vector Sort Time Start : " << startTime << " End : " << endTime << " Time Dif: "
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
+	sortVector();
+	sortDeque();
 }
