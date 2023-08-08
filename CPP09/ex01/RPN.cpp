@@ -32,6 +32,7 @@ void RPN::doTheMath(char token) {
 	if (token != '/' && token != '*' && token != '+' && token != '-') {
 		theStack.push(token - '0');
 	} else {
+		if (theStack.size() < 2) throw std::logic_error("Error: Math logic error");
 		int operator1 = theStack.top();
 		theStack.pop();
 		int operator2 = theStack.top();
