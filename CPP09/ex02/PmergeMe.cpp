@@ -15,15 +15,6 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &idk) {
 
 PmergeMe::PmergeMe(const PmergeMe &idk) : _argc(idk._argc), _input(idk._input) {}
 
-void PmergeMe::printVector() {
-	std::cout << "Unsoted integer vector: ";
-	std::cout << _theVector.size();
-	for (std::vector<unsigned int>::iterator it = _theVector.begin(); it != _theVector.end();
-		 it++) {
-		std::cout << *it << " ";
-	}
-}
-
 void PmergeMe::start() {
 	for (int cnt = 1; cnt < _argc; cnt++) {
 		int input = std::stoi(_input[cnt]);
@@ -33,7 +24,14 @@ void PmergeMe::start() {
 		_theVector.push_back(input);
 		_theDeque.push_back(input);
 	}
-	printVector();
+	printContainer(_theVector, _theVector.begin(), _theVector.end(),
+				   "This is the vector before sorting: ");
+	clock_t startTime = clock();
 	fordJohnsonSort(_theVector, _theVector.begin(), _theVector.end());
-	printVector();
+	clock_t endTime = clock();
+	printContainer(_theVector, _theVector.begin(), _theVector.end(),
+				   "This is the vector after sorting: ");
+	std::cout << std::endl
+			  << "Vector Sort Time Start : " << startTime << " End : " << endTime << " Time Dif: "
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
 }
