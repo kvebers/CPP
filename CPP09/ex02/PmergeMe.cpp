@@ -1,6 +1,5 @@
 #include "PmergeMe.hpp"
 
-
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(char **argv, int argc) : _argc(argc), _input(argv) {}
