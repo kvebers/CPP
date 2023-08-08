@@ -7,11 +7,13 @@
 #include <deque>
 #include <iostream>
 #include <iterator>
+#include <limits>
 #include <list>
 #include <stdexcept>
 #include <string>
 #include <vector>
 
+// UTILS
 template <typename CONT>
 void checkContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end) {
 	typename CONT::iterator itCheck = start;
@@ -33,6 +35,10 @@ void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::it
 		std::cout << *start << " ";
 	}
 }
+
+// END OF UTILS
+
+// MERGESORT
 
 template <typename CONT>
 void mergeSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
@@ -113,6 +119,11 @@ void mergeSort(CONT &cont, typename CONT::iterator start, typename CONT::iterato
 	}
 }
 
+// MERGSORT END
+
+
+
+
 class PmergeMe {
    public:
 	PmergeMe();
@@ -128,7 +139,10 @@ class PmergeMe {
 	int _treshold;
 	std::vector<unsigned int> _theVector;
 	std::deque<unsigned int> _theDeque;
-	void printVector();
+	std::vector<unsigned int> _theVector1;
+	std::deque<unsigned int> _theDeque1;
+	void sortDeque1();
+	void sortVector1();
 	void sortDeque();
 	void sortVector();
 	void estimateThreshold();

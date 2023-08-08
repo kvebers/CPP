@@ -29,6 +29,20 @@ void PmergeMe::sortVector() {
 			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
 }
 
+void PmergeMe::sortVector1() {
+	clock_t startTime = clock();
+	mergeSort(_theVector, _theVector.begin(), _theVector.end(), _treshold);
+	clock_t endTime = clock();
+	std::cout << std::endl;
+	printContainer(_theVector, _theVector.begin(), _theVector.end(),
+				   "This is the vector after sorting: ");
+	std::cout << std::endl
+			  << std::endl
+			  << "Merge Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
+			  << " Time Dif: "
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
+}
+
 void PmergeMe::sortDeque() {
 	clock_t startTime = clock();
 	mergeSort(_theDeque, _theDeque.begin(), _theDeque.end(), _treshold);
@@ -36,6 +50,18 @@ void PmergeMe::sortDeque() {
 	std::cout << std::endl
 			  << std::endl
 			  << "Deque Sort |  Start Time : " << startTime << " End : " << endTime << " Time Dif: "
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms"
+			  << std::endl;
+}
+
+void PmergeMe::sortDeque1() {
+	clock_t startTime = clock();
+	mergeSort(_theDeque, _theDeque.begin(), _theDeque.end(), _treshold);
+	clock_t endTime = clock();
+	std::cout << std::endl
+			  << std::endl
+			  << "Merge Sort | Deque Sort |  Start Time : " << startTime << " End : " << endTime
+			  << " Time Dif: "
 			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms"
 			  << std::endl;
 }
@@ -50,12 +76,19 @@ void PmergeMe::start() {
 		if (input == 0 && _input[cnt][0] != 0) throw std::logic_error("Error incorrect Input");
 		_theVector.push_back(input);
 		_theDeque.push_back(input);
+		_theVector1.push_back(input);
+		_theDeque1.push_back(input);
 	}
 	estimateThreshold();
 	printContainer(_theVector, _theVector.begin(), _theVector.end(),
 				   "This is the vector before sorting: ");
-	sortVector();
-	sortDeque();
+	// MERGESORT AND FORDS ALGORITHM COMPARISON
+	// sortVector();
+	// sortDeque();
+	sortVector1();
+	sortDeque1();
 	checkContainer(_theVector, _theVector.begin(), _theVector.end());
 	checkContainer(_theDeque, _theDeque.begin(), _theDeque.end());
+	// checkContainer(_theVector1, _theVector1.begin(), _theVector1.end());
+	// checkContainer(_theDeque1, _theDeque1.begin(), _theDeque1.end());
 }
