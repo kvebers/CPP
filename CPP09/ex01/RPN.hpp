@@ -14,14 +14,13 @@ class RPN {
 	RPN &operator=(const RPN &idk);
 	RPN(const RPN &idk);
 	void start();
-	void stackInit();
-	void doTheMath(char token);
-	int doTheOps(int operator1, int operator2, char token);
 
    private:
 	std::string _input;
-	int _result;
 	std::stack<int> theStack;
+	void stackInit();
+	void doTheMath(char token);
+	int doTheOps(int operator1, int operator2, char token);
 };
 
 #endif
