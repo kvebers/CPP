@@ -15,12 +15,13 @@ class RPN {
 	RPN(const RPN &idk);
 	void start();
 	void stackInit();
-	void doTheMeth();
-	void checkKindergardenMeth();
+	void doTheMath(char token);
+	int doTheOps(int operator1, int operator2, char token);
 
    private:
 	std::string _input;
-	std::stack<char> theStack;
+	int _result;
+	std::stack<int> theStack;
 };
 
 #endif
