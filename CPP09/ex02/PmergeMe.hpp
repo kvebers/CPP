@@ -91,6 +91,7 @@ void merge(CONT &cont, typename CONT::iterator start, typename CONT::iterator mi
 		*(previousCnt + 1) = theValue;
 	}
 }
+
 template <typename CONT>
 void recursion(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
 			   int treshold) {
