@@ -1,5 +1,8 @@
 #include "PmergeMe.hpp"
 
+#include "ExtraSort.tpp"
+#include "FordJohanson.tpp"
+
 PmergeMe::PmergeMe() {}
 
 PmergeMe::PmergeMe(char **argv, int argc) : _argc(argc), _input(argv) {}
@@ -17,7 +20,7 @@ PmergeMe::PmergeMe(const PmergeMe &idk) : _argc(idk._argc), _input(idk._input) {
 
 void PmergeMe::sortVector() {
 	clock_t startTime = clock();
-	mergeSort(_theVector, _theVector.begin(), _theVector.end(), _treshold);
+	FordJohanson(_theVector, _theVector.begin(), _theVector.end());
 	clock_t endTime = clock();
 	std::cout << std::endl;
 	printContainer(_theVector, _theVector.begin(), _theVector.end(),
@@ -34,8 +37,6 @@ void PmergeMe::sortVector1() {
 	mergeSort(_theVector, _theVector.begin(), _theVector.end(), _treshold);
 	clock_t endTime = clock();
 	std::cout << std::endl;
-	printContainer(_theVector, _theVector.begin(), _theVector.end(),
-				   "This is the vector after sorting: ");
 	std::cout << std::endl
 			  << std::endl
 			  << "Merge Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
@@ -83,7 +84,7 @@ void PmergeMe::start() {
 	printContainer(_theVector, _theVector.begin(), _theVector.end(),
 				   "This is the vector before sorting: ");
 	// MERGESORT AND FORDS ALGORITHM COMPARISON
-	// sortVector();
+	sortVector();
 	// sortDeque();
 	sortVector1();
 	sortDeque1();
