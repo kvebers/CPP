@@ -1,5 +1,7 @@
 #include "PmergeMe.hpp"
 
+// UTILS
+
 template <typename CONT>
 void checkContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end) {
 	typename CONT::iterator itCheck = start;
@@ -21,6 +23,17 @@ void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::it
 		std::cout << *start << " ";
 	}
 }
+
+template <typename CONT>
+void printPairVector(const CONT &pair) {
+	std::cout << std::endl;
+	for (size_t i = 0; i < pair.size(); ++i) {
+		std::cout << "Pair " << i << ": (" << pair[i].first << ", " << pair[i].second << ")"
+				  << std::endl;
+	}
+}
+
+// END OF UTILS
 
 template <typename CONT>
 void mergeSort(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,

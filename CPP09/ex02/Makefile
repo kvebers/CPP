@@ -1,7 +1,9 @@
 NAME =	PmergeMe
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC =	main.cpp \
-		PmergeMe.cpp
+		PmergeMe.cpp \
+		FordVectorBczIcantTemplate.cpp \
+		FordDequeBczIcantTemplate.cpp
 
 SRC_O = $(SRC:%.cpp=%.o)
 RM = rm -f
