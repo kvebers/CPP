@@ -114,8 +114,8 @@ void BitcoinExchange::analyzeTheData() {
 			float multiplay = getAmount(line);
 			for (it = _bitcoinMap.rbegin(); it != _bitcoinMap.rend(); it++) {
 				if (date >= it->first) {
-					std::cout << line.substr(0, 10) << " => " << multiplay * it->second
-							  << std::endl;
+					std::cout << line.substr(0, 10) << " => " << std::fixed << std::setprecision(2)
+							  << multiplay * it->second << std::endl;
 					break;
 				}
 			}
