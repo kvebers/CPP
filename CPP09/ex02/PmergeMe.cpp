@@ -25,8 +25,7 @@ void PmergeMe::sortVector() {
 	newVector = FordVector(_theVector);
 	clock_t endTime = clock();
 	std::cout << std::endl;
-	printContainer(newVector, newVector.begin(), newVector.end(),
-				   "This is the vector after sorting: ");
+	printContainer(newVector, "This is the vector after sorting: ");
 	std::cout << std::endl
 			  << std::endl
 			  << "Ford Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
@@ -85,12 +84,11 @@ void PmergeMe::start() {
 		_theVector1.push_back(input);
 		_theDeque1.push_back(input);
 	}
-	estimateThreshold();
-	printContainer(_theVector, _theVector.begin(), _theVector.end(),
-				   "This is the vector before sorting: ");
+	printContainer(_theVector, "This is the vector before sorting: ");
 	// MERGESORT AND FORDS ALGORITHM COMPARISON
 	sortVector();
 	// sortDeque();
+	estimateThreshold();
 	sortVector1();
 	sortDeque1();
 }

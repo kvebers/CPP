@@ -16,12 +16,13 @@ void checkContainer(CONT &cont, typename CONT::iterator start, typename CONT::it
 }
 
 template <typename CONT>
-void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
-					std::string justTheString) {
-	while (start != cont.end()) {
+void printContainer(CONT &cont, std::string justTheString) {
+	std::cout << justTheString;
+	typename CONT::iterator start = cont.begin();
+	for (typename CONT::iterator start = cont.begin(); start != cont.end(); start++) {
 		std::cout << *start << " ";
-		start++;
 	}
+	std::cout << std::endl;
 }
 
 template <typename CONT>

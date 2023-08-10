@@ -47,7 +47,7 @@ class PmergeMe {
 	std::vector<int> createVectorFirstElements(std::vector<Pair> &cont);
 	std::vector<int> createVectorOtherElements(std::vector<Pair> &cont);
 	void vectorInsertionSort(std::vector<int> &FirstVector, std::vector<int> &otherVector);
-	void insertVector(std::vector<int> &FirstVector, int value, int range);
+	void binaryInsertVector(std::vector<int> &FirstVector, int value, int range);
 
 	// deque sort for later
 };

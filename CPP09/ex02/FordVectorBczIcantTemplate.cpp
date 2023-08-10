@@ -9,29 +9,40 @@
 int jacobsNumberGen(int n) {
 	int term1 = n * std::ceil(std::log2(3.0 * n / 4.0));
 	int term2 = std::floor(std::pow(2, std::floor(std::log2(6.0 * n))) / 3);
-	int term3 = std::floor(std::log2(6.0 * n) / 2);
-
+	int term3 = std::floor(std::log2(6.0 * n) / 2);	 // Thanks AI overlord for helping me with this
 	int result = term1 - term2 + term3;
 	return result;
 }
 
-void PmergeMe::insertVector(std::vector<int> &FirstVector, int value, int range) {
-	int cnt = range;
-	while (cnt >= 0 && FirstVector[cnt] > value) {
-		cnt--;
+void PmergeMe::binaryInsertVector(std::vector<int> &FirstVector, int value, int range) {
+	int low = 0;
+	int high = range;
+
+	while (low <= high) {
+		int mid = low + (high - low) / 2;
+
+		if (FirstVector[mid] == value) {
+			FirstVector.insert(FirstVector.begin() + mid + 1, value);
+			return;
+		} else if (FirstVector[mid] < value) {
+			low = mid + 1;
+		} else {
+			high = mid - 1;
+		}
 	}
-	FirstVector.insert(FirstVector.begin() + cnt + 1, value);
+	FirstVector.insert(FirstVector.begin() + low, value);
 }
 
 void PmergeMe::vectorInsertionSort(std::vector<int> &FirstVector, std::vector<int> &otherVector) {
 	int counter = 0;
-	int jacobsIndexLow = -1;
-	int jacobsIndexUp = jacobsNumberGen(0);
+	int jacobsIndexLow = 0;
+	int jacobsIndexUp = jacobsNumberGen(1);
 	int jacobsNumber = 0;
+	printContainer(FirstVector, "Out : ");
 	while (jacobsNumber < otherVector.size()) {
 		while (jacobsNumber > jacobsIndexLow) {
-			insertVector(FirstVector, otherVector[jacobsNumber - 1], jacobsIndexUp);
-			std::cout << jacobsNumber << " " << otherVector[jacobsNumber - 1] << std::endl;
+			binaryInsertVector(FirstVector, otherVector[jacobsNumber - 1], jacobsIndexUp + 1);
+			printContainer(FirstVector, "Out : ");
 			jacobsNumber--;
 		}
 		counter++;
@@ -41,8 +52,7 @@ void PmergeMe::vectorInsertionSort(std::vector<int> &FirstVector, std::vector<in
 	}
 	jacobsNumber = otherVector.size();
 	while (jacobsNumber > jacobsIndexLow) {
-		insertVector(FirstVector, otherVector[jacobsNumber - 1], FirstVector.size());
-		std::cout << jacobsNumber << " " << otherVector[jacobsNumber - 1] << std::endl;
+		binaryInsertVector(FirstVector, otherVector[jacobsNumber - 1], FirstVector.size());
 		jacobsNumber--;
 	}
 }
@@ -133,5 +143,7 @@ std::vector<int> PmergeMe::FordVector(std::vector<int> &cont) {
 	// printContainer(FirstVector, FirstVector.begin(), FirstVector.end(), "First Vector : ");
 	// printContainer(OtherVector, OtherVector.begin(), OtherVector.end(), "Other Vector : ");
 	vectorInsertionSort(FirstVector, OtherVector);
+	std::vector<int>::iterator iter = std::find(FirstVector.begin(), FirstVector.end(), -1);
+	if (iter != FirstVector.end()) FirstVector.erase(iter);
 	return FirstVector;
 }
