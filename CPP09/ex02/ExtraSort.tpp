@@ -5,24 +5,28 @@
 template <typename CONT>
 void checkContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end) {
 	typename CONT::iterator itCheck = start;
+	int cnt = 0;
 	itCheck++;
 	for (; end != itCheck; itCheck++) {
 		if (*itCheck < *start) {
-			std::cout << "Something ain't sorted" << std::endl;
+			std::cout << "| \033[1;31mSomething ain't sorted " << *start << " " << *itCheck
+					  << "\033[0m" << std::endl;
+			return;
 		}
 		start++;
 	}
-	std::cout << "All sorted" << std::endl;
+	std::cout << "| \033[1;32mAll sorted\033[0m" << std::endl;
 }
 
 template <typename CONT>
 void printContainer(CONT &cont, std::string justTheString) {
-	std::cout << justTheString;
+	std::cout << "\033[1;32m" << justTheString << "\033[0m \033[1;33m";
 	typename CONT::iterator start = cont.begin();
 	for (typename CONT::iterator start = cont.begin(); start != cont.end(); start++) {
 		std::cout << *start << " ";
 	}
-	std::cout << std::endl;
+	std::cout << "\033[0m";
+	checkContainer(cont, cont.begin(), cont.end());
 }
 
 template <typename CONT>

@@ -20,7 +20,6 @@ void PmergeMe::binaryInsertVector(std::vector<int> &FirstVector, int value, int 
 
 	while (low <= high) {
 		int mid = low + (high - low) / 2;
-
 		if (FirstVector[mid] == value) {
 			FirstVector.insert(FirstVector.begin() + mid + 1, value);
 			return;
@@ -36,13 +35,11 @@ void PmergeMe::binaryInsertVector(std::vector<int> &FirstVector, int value, int 
 void PmergeMe::vectorInsertionSort(std::vector<int> &FirstVector, std::vector<int> &otherVector) {
 	int counter = 0;
 	int jacobsIndexLow = 0;
-	int jacobsIndexUp = jacobsNumberGen(1);
+	int jacobsIndexUp = jacobsNumberGen(3);
 	int jacobsNumber = 0;
-	printContainer(FirstVector, "Out : ");
 	while (jacobsNumber < otherVector.size()) {
 		while (jacobsNumber > jacobsIndexLow) {
-			binaryInsertVector(FirstVector, otherVector[jacobsNumber - 1], jacobsIndexUp + 1);
-			printContainer(FirstVector, "Out : ");
+			binaryInsertVector(FirstVector, otherVector[jacobsNumber - 1], jacobsIndexUp * 2 + 1);
 			jacobsNumber--;
 		}
 		counter++;

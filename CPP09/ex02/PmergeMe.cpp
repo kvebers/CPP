@@ -1,7 +1,5 @@
 #include "PmergeMe.hpp"
 
-#include <vector>
-
 #include "ExtraSort.tpp"
 
 PmergeMe::PmergeMe() {}
@@ -24,13 +22,10 @@ void PmergeMe::sortVector() {
 	clock_t startTime = clock();
 	newVector = FordVector(_theVector);
 	clock_t endTime = clock();
-	std::cout << std::endl;
 	printContainer(newVector, "This is the vector after sorting: ");
-	std::cout << std::endl
-			  << std::endl
-			  << "Ford Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
-			  << " Time Dif: "
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
+	std::cout << "Ford Sort | Vector Sort | Start Time: " << startTime << " End: " << endTime
+			  << " Time Difference: " << std::setprecision(2) << std::fixed
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
 	// checkContainer(newVector, newVector.begin(), newVector.end());
 }
 
@@ -41,9 +36,8 @@ void PmergeMe::sortDeque() {
 	// std::cout << std::endl
 	// 		  << std::endl
 	// 		  << "Ford Sort | Deque Sort |  Start Time : " << startTime << " End : " << endTime << "
-	// Time Dif: "
-	// 		  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms"
-	// 		  << std::endl;
+	//   << " Time Difference: " << std::setprecision(2) << std::fixed
+	//   << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
 }
 
 void PmergeMe::sortVector1() {
@@ -54,8 +48,8 @@ void PmergeMe::sortVector1() {
 	std::cout << std::endl
 			  << std::endl
 			  << "Merge Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
-			  << " Time Dif: "
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms";
+			  << " Time Difference: " << std::setprecision(2) << std::fixed
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
 	// checkContainer(_theVector1, _theVector1.begin(), _theVector1.end());
 }
 
@@ -66,9 +60,8 @@ void PmergeMe::sortDeque1() {
 	std::cout << std::endl
 			  << std::endl
 			  << "Merge Sort | Deque Sort |  Start Time : " << startTime << " End : " << endTime
-			  << " Time Dif: "
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000.0) << "ms"
-			  << std::endl;
+			  << " Time Difference: " << std::setprecision(2) << std::fixed
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
 	// checkContainer(_theDeque1, _theDeque1.begin(), _theDeque1.end());
 }
 
