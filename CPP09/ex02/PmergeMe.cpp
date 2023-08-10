@@ -23,33 +23,34 @@ void PmergeMe::sortVector() {
 	newVector = FordVector(_theVector);
 	clock_t endTime = clock();
 	printContainer(newVector, "This is the vector after sorting: ");
-	std::cout << "Ford Sort | Vector Sort | Start Time: " << startTime << " End: " << endTime
+	std::cout << "\033[4;32m"
+			  << "Ford Sort | Vector Sort | Start Time: " << startTime << " End: " << endTime
 			  << " Time Difference: " << std::setprecision(2) << std::fixed
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
-	// checkContainer(newVector, newVector.begin(), newVector.end());
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us"
+			  << "\033[0m" << std::endl;
 }
 
 void PmergeMe::sortDeque() {
-	// clock_t startTime = clock();
-	// mergeSort(_theDeque, _theDeque.begin(), _theDeque.end(), _treshold);
-	// clock_t endTime = clock();
-	// std::cout << std::endl
-	// 		  << std::endl
-	// 		  << "Ford Sort | Deque Sort |  Start Time : " << startTime << " End : " << endTime << "
-	//   << " Time Difference: " << std::setprecision(2) << std::fixed
-	//   << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
+	std::deque<int> newVector;
+	clock_t startTime = clock();
+	newVector = FordDeque(_theDeque);
+	clock_t endTime = clock();
+	std::cout << "\033[4;32m"
+			  << "Ford Sort | Deque Sort | Start Time: " << startTime << " End: " << endTime
+			  << " Time Difference: " << std::setprecision(2) << std::fixed
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us"
+			  << "\033[0m" << std::endl;
 }
 
 void PmergeMe::sortVector1() {
 	clock_t startTime = clock();
 	mergeSort(_theVector1, _theVector1.begin(), _theVector1.end(), _treshold);
 	clock_t endTime = clock();
-	std::cout << std::endl;
-	std::cout << std::endl
-			  << std::endl
+	std::cout << "\033[4;32m"
 			  << "Merge Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
 			  << " Time Difference: " << std::setprecision(2) << std::fixed
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us"
+			  << "\033[0m" << std::endl;
 	// checkContainer(_theVector1, _theVector1.begin(), _theVector1.end());
 }
 
@@ -57,12 +58,32 @@ void PmergeMe::sortDeque1() {
 	clock_t startTime = clock();
 	mergeSort(_theDeque1, _theDeque1.begin(), _theDeque1.end(), _treshold);
 	clock_t endTime = clock();
-	std::cout << std::endl
-			  << std::endl
+	std::cout << "\033[4;32m"
 			  << "Merge Sort | Deque Sort |  Start Time : " << startTime << " End : " << endTime
 			  << " Time Difference: " << std::setprecision(2) << std::fixed
-			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us";
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us"
+			  << "\033[0m" << std::endl;
 	// checkContainer(_theDeque1, _theDeque1.begin(), _theDeque1.end());
+}
+
+void PmergeMe::checkBuiltin() {
+	clock_t startTime = clock();
+	std::sort(_theBuiltinVector.begin(), _theBuiltinVector.end());
+	clock_t endTime = clock();
+	std::cout << "\033[4;32m"
+			  << "Builtin Sort | Vector Sort |  Start Time : " << startTime << " End : " << endTime
+			  << " Time Difference: " << std::setprecision(2) << std::fixed
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us"
+			  << "\033[0m" << std::endl;
+
+	startTime = clock();
+	std::sort(_theBuiltinDeque.begin(), _theBuiltinDeque.end());
+	endTime = clock();
+	std::cout << "\033[4;32m"
+			  << "Builtin Sort | Deque Sort |  Start Time : " << startTime << " End : " << endTime
+			  << " Time Difference: " << std::setprecision(2) << std::fixed
+			  << static_cast<double>(endTime - startTime) / (CLOCKS_PER_SEC / 1000000.0) << " us"
+			  << "\033[0m" << std::endl;
 }
 
 void PmergeMe::estimateThreshold() { _treshold = sqrt(sqrt(_theVector.size() - 1)); }
@@ -76,12 +97,17 @@ void PmergeMe::start() {
 		_theDeque.push_back(input);
 		_theVector1.push_back(input);
 		_theDeque1.push_back(input);
+		_theBuiltinDeque.push_back(input);
+		_theBuiltinVector.push_back(input);
 	}
 	printContainer(_theVector, "This is the vector before sorting: ");
 	// MERGESORT AND FORDS ALGORITHM COMPARISON
 	sortVector();
-	// sortDeque();
+	sortDeque();
 	estimateThreshold();
+	std::cout << "\033[1;33;4mBONUS SORT WITH TEMPLATES\033[0m" << std::endl;
 	sortVector1();
 	sortDeque1();
+	std::cout << "\033[1;33;4mCHEKING THE BUILTIN TIMES OF THE STD::SORT\033[0m" << std::endl;
+	checkBuiltin();
 }

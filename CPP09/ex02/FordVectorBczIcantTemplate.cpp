@@ -1,18 +1,6 @@
 
-#include <cmath>
-#include <iostream>
-#include <vector>
-
 #include "ExtraSort.tpp"
 #include "PmergeMe.hpp"
-
-int jacobsNumberGen(int n) {
-	int term1 = n * std::ceil(std::log2(3.0 * n / 4.0));
-	int term2 = std::floor(std::pow(2, std::floor(std::log2(6.0 * n))) / 3);
-	int term3 = std::floor(std::log2(6.0 * n) / 2);	 // Thanks AI overlord for helping me with this
-	int result = term1 - term2 + term3;
-	return result;
-}
 
 void PmergeMe::binaryInsertVector(std::vector<int> &FirstVector, int value, int range) {
 	int low = 0;
@@ -93,7 +81,7 @@ std::vector<Pair> PmergeMe::PairVectors(std::vector<int> &cont) {
 	return (pairedVectors);
 }
 
-std::vector<Pair> mergeVector(std::vector<Pair> &left, std::vector<Pair> &right) {
+std::vector<Pair> PmergeMe::mergeVector(std::vector<Pair> &left, std::vector<Pair> &right) {
 	std::vector<Pair> result;
 	std::vector<Pair>::const_iterator it = left.begin();
 	std::vector<Pair>::const_iterator it1 = right.begin();
