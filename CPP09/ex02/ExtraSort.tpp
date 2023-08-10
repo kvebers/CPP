@@ -18,9 +18,9 @@ void checkContainer(CONT &cont, typename CONT::iterator start, typename CONT::it
 template <typename CONT>
 void printContainer(CONT &cont, typename CONT::iterator start, typename CONT::iterator end,
 					std::string justTheString) {
-	std::cout << std::endl << justTheString;
-	for (; start != end; start++) {
+	while (start != cont.end()) {
 		std::cout << *start << " ";
+		start++;
 	}
 }
 

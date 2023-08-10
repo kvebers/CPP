@@ -1,9 +1,51 @@
+
+#include <cmath>
+#include <iostream>
 #include <vector>
 
 #include "ExtraSort.tpp"
 #include "PmergeMe.hpp"
 
-bool comparePairs(const Pair &a, const Pair &b) { return a.first < b.first; }
+int jacobsNumberGen(int n) {
+	int term1 = n * std::ceil(std::log2(3.0 * n / 4.0));
+	int term2 = std::floor(std::pow(2, std::floor(std::log2(6.0 * n))) / 3);
+	int term3 = std::floor(std::log2(6.0 * n) / 2);
+
+	int result = term1 - term2 + term3;
+	return result;
+}
+
+void PmergeMe::insertVector(std::vector<int> &FirstVector, int value, int range) {
+	int cnt = range;
+	while (cnt >= 0 && FirstVector[cnt] > value) {
+		cnt--;
+	}
+	FirstVector.insert(FirstVector.begin() + cnt + 1, value);
+}
+
+void PmergeMe::vectorInsertionSort(std::vector<int> &FirstVector, std::vector<int> &otherVector) {
+	int counter = 0;
+	int jacobsIndexLow = -1;
+	int jacobsIndexUp = jacobsNumberGen(0);
+	int jacobsNumber = 0;
+	while (jacobsNumber < otherVector.size()) {
+		while (jacobsNumber > jacobsIndexLow) {
+			insertVector(FirstVector, otherVector[jacobsNumber - 1], jacobsIndexUp);
+			std::cout << jacobsNumber << " " << otherVector[jacobsNumber - 1] << std::endl;
+			jacobsNumber--;
+		}
+		counter++;
+		jacobsIndexLow = jacobsIndexUp;
+		jacobsIndexUp = jacobsNumberGen(counter);
+		jacobsNumber = jacobsIndexUp;
+	}
+	jacobsNumber = otherVector.size();
+	while (jacobsNumber > jacobsIndexLow) {
+		insertVector(FirstVector, otherVector[jacobsNumber - 1], FirstVector.size());
+		std::cout << jacobsNumber << " " << otherVector[jacobsNumber - 1] << std::endl;
+		jacobsNumber--;
+	}
+}
 
 std::vector<int> PmergeMe::createVectorOtherElements(std::vector<Pair> &cont) {
 	std::vector<int> smollVector;
@@ -29,7 +71,6 @@ std::vector<Pair> PmergeMe::PairVectors(std::vector<int> &cont) {
 	std::vector<int>::const_iterator it = cont.begin();
 	std::vector<int>::const_iterator it1 = cont.begin();
 	it1++;
-
 	while (it != cont.end() && it1 != cont.end()) {
 		if (*it > *it1)
 			pairedVectors.push_back(std::make_pair(*it, *it1));
@@ -82,13 +123,15 @@ std::vector<Pair> PmergeMe::mergeSortVector(std::vector<Pair> &cont) {
 	return mergeVector(left, right);
 }
 
-void PmergeMe::FordVector(std::vector<int> &cont) {
+std::vector<int> PmergeMe::FordVector(std::vector<int> &cont) {
 	std::vector<Pair> pairedVectors = PairVectors(cont);
-	printPairVector(pairedVectors);	 // DEBUG
+	// printPairVector(pairedVectors);	 // DEBUG
 	pairedVectors = mergeSortVector(pairedVectors);
-	printPairVector(pairedVectors);
+	// printPairVector(pairedVectors);
 	std::vector<int> FirstVector = createVectorFirstElements(pairedVectors);
 	std::vector<int> OtherVector = createVectorOtherElements(pairedVectors);
-	printContainer(FirstVector, FirstVector.begin(), FirstVector.end(), "First Vector : ");
-	printContainer(OtherVector, OtherVector.begin(), OtherVector.end(), "Other Vector : ");
+	// printContainer(FirstVector, FirstVector.begin(), FirstVector.end(), "First Vector : ");
+	// printContainer(OtherVector, OtherVector.begin(), OtherVector.end(), "Other Vector : ");
+	vectorInsertionSort(FirstVector, OtherVector);
+	return FirstVector;
 }
