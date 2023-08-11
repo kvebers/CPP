@@ -21,9 +21,9 @@ RPN::RPN(const RPN &idk) : _input(idk._input) {}
 
 int RPN::doTheOps(int operator1, int operator2, char token) {
 	if (token == '-') return (operator2 - operator1);
-	if (token == '+') return (operator1 + operator2);
-	if (token == '*') return (operator1 * operator2);
-	if (token == '/') return (operator1 / operator2);
+	if (token == '+') return (operator2 + operator1);
+	if (token == '*') return (operator2 * operator1);
+	if (token == '/') return (operator2 / operator1);
 	throw std::logic_error("Something is not correct here");
 	return (0);
 }
