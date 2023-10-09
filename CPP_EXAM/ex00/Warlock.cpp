@@ -10,7 +10,7 @@ Warlock &Warlock::operator=(Warlock const &other) {
 
 Warlock::Warlock(Warlock const &other) { *this = other; }
 
-Warlock::Warlock(std::string name, std::string title) : _name(name), _title(title) {
+Warlock::Warlock(std::string name, std::string title) : _title(title), _name(name) {
 	std::cout << _name << ": his looks like another boring day." << std::endl;
 }
 Warlock::~Warlock() { std::cout << _name << ": My job here is done" << std::endl; }
