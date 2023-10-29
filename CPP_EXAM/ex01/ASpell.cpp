@@ -22,4 +22,4 @@ ASpell::~ASpell() {}
 std::string const &ASpell::getName() const { return name; }
 std::string const &ASpell::getEffects() const { return effects; }
 
-void ASpell::lunch(ATarget const &target) const { target.getHitBySpell(*this); }
+void ASpell::launch(ATarget const &target) const { target.getHitBySpell(*this); }

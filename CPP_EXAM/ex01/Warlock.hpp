@@ -18,7 +18,7 @@ class Warlock {
 	Warlock &operator=(Warlock const &other);
 
    public:
-	Warlock(std::string const &initName, std::string const &initTitle);
+	Warlock(std::string const &n, std::string const &t);
 	~Warlock();
 
 	std::string const &getName() const;

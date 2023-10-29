@@ -1,7 +1,5 @@
 #include "Warlock.hpp"
 
-#include <sys/_types/_size_t.h>
-
 #include "ASpell.hpp"
 
 Warlock::Warlock(std::string const &n, std::string const &t) : name(n), title(t) {
@@ -72,7 +70,7 @@ void Warlock::launchSpell(std::string spellName, ATarget const &target) {
 	size_t i = spells.size();
 	while (i-- > 0) {
 		if (spells.at(i)->getName().compare(spellName) == 0) {
-			spells.at(i)->lunch(target);
+			spells.at(i)->launch(target);
 			return;
 		}
 	}
