@@ -5,17 +5,18 @@
 #include <vector>
 
 #include "ASpell.hpp"
+#include "SpellBook.hpp"
 
 class Warlock {
    private:
 	std::string name;
 	std::string title;
 
-	std::vector<ASpell *> spells;
+	SpellBook spellBook;
 
 	Warlock();
 	Warlock(const Warlock &other);
-	Warlock &operator=(Warlock const &other);
+	Warlock &operator=(const Warlock &other);
 
    public:
 	Warlock(std::string const &initName, std::string const &initTitle);

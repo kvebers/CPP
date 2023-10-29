@@ -1,16 +1,24 @@
 #include "Warlock.hpp"
+#include "Fwoosh.hpp"
+#include "Dummy.hpp"
 
-int main() {
-	Warlock const richard("Richard", "Mistress of Magma");
-	richard.introduce();
-	std::cout << richard.getName() << " - " << richard.getTitle() << std::endl;
+// #https://github.com/c-bertran/42-exam-shell/tree/main
+int main(void)
+{
+  Warlock richard("Richard", "the Titled");
 
-	Warlock* jack = new Warlock("Jack", "the Long");
-	jack->introduce();
-	jack->setTitle("the Mighty");
-	jack->introduce();
+  Dummy bob;
+  Fwoosh* fwoosh = new Fwoosh();
 
-	delete jack;
+  richard.learnSpell(fwoosh);
+  richard.learnSpell(fwoosh);
 
-	return (0);
+  richard.introduce();
+  richard.launchSpell("Fwoosh", bob);
+
+  richard.forgetSpell("Fwoosh");
+  richard.launchSpell("Fwoosh", bob);
+
+    delete fwoosh;
+  return 0;
 }
