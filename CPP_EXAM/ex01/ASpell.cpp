@@ -1,21 +1,20 @@
 #include "ASpell.hpp"
 
-ASpell::ASpell(std::string const &n, std::string const &e)
-    : name(n), effects(e) {}
+ASpell::ASpell(std::string const &n, std::string const &e) : name(n), effects(e) {}
 
 ASpell::ASpell() : name(""), effects("") {}
 
 ASpell::ASpell(ASpell const &other) {
-  name = other.name;
-  effects = other.effects;
+	name = other.name;
+	effects = other.effects;
 }
 
 ASpell &ASpell::operator=(ASpell const &other) {
-  if (this != &other) {
-    name = other.name;
-    effects = other.effects;
-  }
-  return *this;
+	if (this != &other) {
+		name = other.name;
+		effects = other.effects;
+	}
+	return *this;
 }
 
 ASpell::~ASpell() {}
