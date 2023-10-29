@@ -17,7 +17,7 @@ class ASpell {
 	ASpell &operator=(ASpell const &other);
 
    public:
-	ASpell(std::string const &initName, std::string const &initEffects);
+	ASpell(std::string const &n, std::string const &e);
 	virtual ~ASpell();
 
 	std::string const &getName() const;
