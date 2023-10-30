@@ -4,7 +4,7 @@ Warlock::Warlock(std::string const &n, std::string const &t) : name(n), title(t)
 	std::cout << n << ": This looks like another boring day." << std::endl;
 }
 
-Warlock::Warlock(const Warlock &other) {
+Warlock::Warlock(Warlock const &other) {
 	name = other.name;
 	title = other.title;
 }
