@@ -1,7 +1,5 @@
 #include "TargetGenerator.hpp"
 
-#include <cstddef>
-
 TargetGenerator::TargetGenerator() {}
 
 TargetGenerator::TargetGenerator(TargetGenerator const &other) {
@@ -24,9 +22,7 @@ TargetGenerator &TargetGenerator::operator=(TargetGenerator const &other) {
 }
 
 TargetGenerator::~TargetGenerator() {
-	size_t i;
-
-	i = targets.size();
+	size_t i = targets.size();
 	while (i-- > 0) delete targets[i];
 
 	targets.clear();
