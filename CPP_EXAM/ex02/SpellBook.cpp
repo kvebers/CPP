@@ -20,6 +20,7 @@ SpellBook &SpellBook::operator=(SpellBook const &other) {
 		i = 0;
 		while (i++ < other.spells.size()) spells.push_back(other.spells[i]->clone());
 	}
+	return *this;
 }
 
 SpellBook::~SpellBook() {
