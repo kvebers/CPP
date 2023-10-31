@@ -6,15 +6,15 @@ Warlock::Warlock(std::string const &n, std::string const &t) : name(n), title(t)
 	std::cout << n << ": This looks like another boring day." << std::endl;
 }
 
-Warlock::Warlock(const Warlock &other) {
+Warlock::Warlock(Warlock const &other) {
 	name = other.name;
 	title = other.title;
 
 	size_t i = spells.size();
-	while (i-- > 0) delete spells.at(i);
+	while (i-- > 0) delete spells[i];
 	spells.clear();
 	i = 0;
-	while (i++ < other.spells.size()) spells.push_back(other.spells.at(i)->clone());
+	while (i++ < other.spells.size()) spells.push_back(other.spells[i]->clone());
 }
 
 Warlock::Warlock() : name(""), title("") {}
@@ -22,7 +22,7 @@ Warlock::Warlock() : name(""), title("") {}
 Warlock::~Warlock() {
 	std::cout << name << ": My job here is done!" << std::endl;
 	size_t i = spells.size();
-	while (i-- > 0) delete spells.at(i);
+	while (i-- > 0) delete spells[i];
 	spells.clear();
 }
 
@@ -31,9 +31,10 @@ Warlock &Warlock::operator=(Warlock const &other) {
 		name = other.name;
 		title = other.title;
 		size_t i = spells.size();
-		while (i-- > 0) delete spells.at(i);
+		while (i-- > 0) delete spells[i];
 		spells.clear();
-		while (i++ < other.spells.size()) spells.push_back(other.spells.at(i)->clone());
+		i = 0;
+		while (i++ < other.spells.size()) spells.push_back(other.spells[i]->clone());
 	}
 	return *this;
 }
@@ -49,28 +50,27 @@ void Warlock::introduce() const {
 
 void Warlock::learnSpell(ASpell *spell) {
 	size_t i = spells.size();
-	while (i-- > 0) {
-		if (spells.at(i)->getName().compare(spell->getName()) == 0) return;
-	}
+	while (i-- > 0)
+		if (spells[i]->getName().compare(spell->getName()) == 0) return;
 	spells.push_back(spell->clone());
 }
 
-void Warlock::forgetSpell(std::string spellName) {
+void Warlock::forgetSpell(std::string spell) {
 	size_t i = spells.size();
 	while (i-- > 0) {
-		if (spells.at(i)->getName().compare(spellName) == 0) {
-			delete spells.at(i);
+		if (spells[i]->getName().compare(spell) == 0) {
+			delete spells[i];
 			spells.erase(spells.begin() + i);
 			return;
 		}
 	}
 }
 
-void Warlock::launchSpell(std::string spellName, ATarget const &target) {
+void Warlock::launchSpell(std::string spell, ATarget const &target) {
 	size_t i = spells.size();
 	while (i-- > 0) {
-		if (spells.at(i)->getName().compare(spellName) == 0) {
-			spells.at(i)->launch(target);
+		if (spells[i]->getName().compare(spell) == 0) {
+			spells[i]->launch(target);
 			return;
 		}
 	}

@@ -10,12 +10,13 @@ class ASpell;
 class ATarget {
    protected:
 	std::string type;
+
 	ATarget();
 	ATarget(ATarget const &other);
 	ATarget &operator=(ATarget const &other);
 
    public:
-	ATarget(std::string const &other);
+	ATarget(std::string const &t);
 	virtual ~ATarget();
 
 	std::string const &getType() const;

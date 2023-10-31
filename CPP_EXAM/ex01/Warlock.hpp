@@ -10,11 +10,9 @@ class Warlock {
    private:
 	std::string name;
 	std::string title;
-
 	std::vector<ASpell *> spells;
-
 	Warlock();
-	Warlock(const Warlock &other);
+	Warlock(Warlock const &other);
 	Warlock &operator=(Warlock const &other);
 
    public:
@@ -24,13 +22,11 @@ class Warlock {
 	std::string const &getName() const;
 	std::string const &getTitle() const;
 
-	void setTitle(std::string const &newTitle);
-
+	void setTitle(std::string const &t);
 	void introduce() const;
-
 	void learnSpell(ASpell *spell);
-	void forgetSpell(std::string spellName);
-	void launchSpell(std::string spellName, ATarget const &target);
+	void forgetSpell(std::string spell);
+	void launchSpell(std::string spell, ATarget const &target);
 };
 
 #endif
