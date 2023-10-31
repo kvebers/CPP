@@ -13,7 +13,7 @@ class ASpell {
 	std::string effects;
 
 	ASpell();
-	ASpell(ASpell const &ASpell);
+	ASpell(ASpell const &other);
 	ASpell &operator=(ASpell const &other);
 
    public:
@@ -24,7 +24,6 @@ class ASpell {
 	std::string const &getEffects() const;
 
 	virtual ASpell *clone() const = 0;
-
 	void launch(ATarget const &target) const;
 };
 

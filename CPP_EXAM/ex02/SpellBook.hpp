@@ -4,7 +4,6 @@
 #include <vector>
 
 #include "ASpell.hpp"
-
 class SpellBook {
    private:
 	std::vector<ASpell *> spells;
@@ -16,8 +15,8 @@ class SpellBook {
 	~SpellBook();
 
 	void learnSpell(ASpell *spell);
-	void forgetSpell(std::string const &spellName);
-	ASpell *createSpell(std::string const &spellName);
+	void forgetSpell(std::string const &spell);
+	ASpell *createSpell(std::string const &spell);
 };
 
 #endif

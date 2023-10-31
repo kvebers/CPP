@@ -1,7 +1,6 @@
 #include "ASpell.hpp"
 
-ASpell::ASpell(std::string const &n, std::string const &e)
-	: name(n), effects(e){};
+ASpell::ASpell(std::string const &n, std::string const &e) : name(n), effects(e) {}
 
 ASpell::ASpell() : name(""), effects("") {}
 

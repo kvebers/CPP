@@ -1,15 +1,13 @@
 #include "ATarget.hpp"
 
-ATarget::ATarget(std::string const &initType) : type(initType){};
+ATarget::ATarget(std::string const &t) : type(t) {}
 
 ATarget::ATarget() : type("") {}
 
 ATarget::ATarget(ATarget const &other) { type = other.type; }
 
 ATarget &ATarget::operator=(ATarget const &other) {
-	if (this != &other) {
-		type = other.type;
-	}
+	if (this != &other) type = other.type;
 	return *this;
 }
 
