@@ -24,7 +24,6 @@ TargetGenerator &TargetGenerator::operator=(TargetGenerator const &other) {
 TargetGenerator::~TargetGenerator() {
 	size_t i = targets.size();
 	while (i-- > 0) delete targets[i];
-
 	targets.clear();
 }
 
