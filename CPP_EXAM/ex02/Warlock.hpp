@@ -12,18 +12,15 @@ class Warlock {
 	std::string name;
 	std::string title;
 	SpellBook spellBook;
-	
 	Warlock();
 	Warlock(Warlock const &other);
 	Warlock &operator=(Warlock const &other);
 
    public:
-	Warlock(std::string const &n, std::string const &t);
 	~Warlock();
-
+	Warlock(std::string const &n, std::string const &t);
 	std::string const &getName() const;
 	std::string const &getTitle() const;
-
 	void setTitle(std::string const &t);
 	void introduce() const;
 	void learnSpell(ASpell *spell);

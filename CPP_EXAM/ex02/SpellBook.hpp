@@ -1,9 +1,11 @@
 #ifndef SPELLBOOK_HPP
 #define SPELLBOOK_HPP
 
+#include <iostream>
 #include <vector>
 
 #include "ASpell.hpp"
+
 class SpellBook {
    private:
 	std::vector<ASpell *> spells;
@@ -11,9 +13,8 @@ class SpellBook {
 	SpellBook &operator=(SpellBook const &other);
 
    public:
-	SpellBook();
 	~SpellBook();
-
+	SpellBook();
 	void learnSpell(ASpell *spell);
 	void forgetSpell(std::string const &spell);
 	ASpell *createSpell(std::string const &spell);

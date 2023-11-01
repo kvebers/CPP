@@ -1,7 +1,5 @@
 #include "ATarget.hpp"
 
-ATarget::ATarget(std::string const &t) : type(t) {}
-
 ATarget::ATarget() : type("") {}
 
 ATarget::ATarget(ATarget const &other) { type = other.type; }
@@ -12,6 +10,8 @@ ATarget &ATarget::operator=(ATarget const &other) {
 }
 
 ATarget::~ATarget() {}
+
+ATarget::ATarget(std::string const &t) : type(t) {}
 
 std::string const &ATarget::getType() const { return type; }
 

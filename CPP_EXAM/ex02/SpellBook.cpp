@@ -1,7 +1,5 @@
 #include "SpellBook.hpp"
 
-#include <iostream>
-
 SpellBook::SpellBook() {}
 
 SpellBook::SpellBook(SpellBook const &other) {
@@ -11,7 +9,6 @@ SpellBook::SpellBook(SpellBook const &other) {
 	i = 0;
 	while (i++ < other.spells.size()) spells.push_back(other.spells[i]->clone());
 }
-
 SpellBook &SpellBook::operator=(SpellBook const &other) {
 	if (this != &other) {
 		size_t i = spells.size();
@@ -50,6 +47,6 @@ void SpellBook::forgetSpell(std::string const &spell) {
 ASpell *SpellBook::createSpell(std::string const &spell) {
 	size_t i = spells.size();
 	while (i-- > 0)
-		if (spells[i]->getName() == spell) return spells[i];
-	return (NULL);
+		if (spells[i]->getName() == spell) return spells[i]->clone();
+	return NULL;
 }

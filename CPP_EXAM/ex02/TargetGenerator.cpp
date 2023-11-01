@@ -1,5 +1,7 @@
 #include "TargetGenerator.hpp"
 
+#include "ASpell.hpp"
+
 TargetGenerator::TargetGenerator() {}
 
 TargetGenerator::TargetGenerator(TargetGenerator const &other) {
@@ -9,7 +11,6 @@ TargetGenerator::TargetGenerator(TargetGenerator const &other) {
 	i = 0;
 	while (i++ < other.targets.size()) targets.push_back(other.targets[i]->clone());
 }
-
 TargetGenerator &TargetGenerator::operator=(TargetGenerator const &other) {
 	if (this != &other) {
 		size_t i = targets.size();
@@ -29,9 +30,8 @@ TargetGenerator::~TargetGenerator() {
 
 void TargetGenerator::learnTargetType(ATarget *target) {
 	size_t i = targets.size();
-	while (i-- > 0) {
+	while (i-- > 0)
 		if (targets[i]->getType() == target->getType()) return;
-	}
 	targets.push_back(target->clone());
 }
 
@@ -49,6 +49,6 @@ void TargetGenerator::forgetTargetType(std::string const &target) {
 ATarget *TargetGenerator::createTarget(std::string const &target) {
 	size_t i = targets.size();
 	while (i-- > 0)
-		if (targets[i]->getType() == target) return (targets[i]);
+		if (targets[i]->getType() == target) return targets[i]->clone();
 	return NULL;
 }
