@@ -10,15 +10,13 @@ class ASpell;
 class ATarget {
    protected:
 	std::string type;
-
 	ATarget();
 	ATarget(ATarget const &other);
 	ATarget &operator=(ATarget const &other);
 
    public:
-	ATarget(std::string const &t);
 	virtual ~ATarget();
-
+	ATarget(std::string const &t);
 	std::string const &getType() const;
 	virtual ATarget *clone() const = 0;
 	void getHitBySpell(ASpell const &spell) const;

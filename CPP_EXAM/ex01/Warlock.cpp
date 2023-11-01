@@ -1,29 +1,16 @@
 #include "Warlock.hpp"
 
-Warlock::Warlock(std::string const &n, std::string const &t) : name(n), title(t) {
-	std::cout << n << ": This looks like another boring day." << std::endl;
-}
+Warlock::Warlock() : name(""), title("") {}
 
 Warlock::Warlock(Warlock const &other) {
 	name = other.name;
 	title = other.title;
-
 	size_t i = spells.size();
 	while (i-- > 0) delete spells[i];
 	spells.clear();
 	i = 0;
 	while (i++ < other.spells.size()) spells.push_back(other.spells[i]->clone());
 }
-
-Warlock::Warlock() : name(""), title("") {}
-
-Warlock::~Warlock() {
-	std::cout << name << ": My job here is done!" << std::endl;
-	size_t i = spells.size();
-	while (i-- > 0) delete spells[i];
-	spells.clear();
-}
-
 Warlock &Warlock::operator=(Warlock const &other) {
 	if (this != &other) {
 		name = other.name;
@@ -35,6 +22,17 @@ Warlock &Warlock::operator=(Warlock const &other) {
 		while (i++ < other.spells.size()) spells.push_back(other.spells[i]->clone());
 	}
 	return *this;
+}
+
+Warlock::~Warlock() {
+	std::cout << name << ": My job here is done!" << std::endl;
+	size_t i = spells.size();
+	while (i-- > 0) delete spells[i];
+	spells.clear();
+}
+
+Warlock::Warlock(std::string const &n, std::string const &t) : name(n), title(t) {
+	std::cout << n << ": This looks like another boring day." << std::endl;
 }
 
 std::string const &Warlock::getName() const { return name; }
@@ -52,6 +50,7 @@ void Warlock::learnSpell(ASpell *spell) {
 		if (spells[i]->getName() == spell->getName()) return;
 	spells.push_back(spell->clone());
 }
+
 void Warlock::forgetSpell(std::string spell) {
 	size_t i = spells.size();
 	while (i-- > 0) {

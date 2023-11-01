@@ -1,6 +1,6 @@
 #include "ATarget.hpp"
 
-ATarget::ATarget(std::string const &t) : type(t) {}
+#include "ASpell.hpp"
 
 ATarget::ATarget() : type("") {}
 
@@ -12,6 +12,8 @@ ATarget &ATarget::operator=(ATarget const &other) {
 }
 
 ATarget::~ATarget() {}
+
+ATarget::ATarget(std::string const &t) : type(t) {}
 
 std::string const &ATarget::getType() const { return type; }
 
