@@ -32,14 +32,14 @@ SpellBook::~SpellBook() {
 void SpellBook::learnSpell(ASpell *spell) {
 	size_t i = spells.size();
 	while (i-- > 0)
-		if (spells[i]->getName().compare(spell->getName()) == 0) return;
+		if (spells[i]->getName() == spell->getName()) return;
 	spells.push_back(spell->clone());
 }
 
 void SpellBook::forgetSpell(std::string const &spell) {
 	size_t i = spells.size();
 	while (i-- > 0) {
-		if (spells[i]->getName().compare(spell) == 0) {
+		if (spells[i]->getName() == spell) {
 			delete spells[i];
 			spells.erase(spells.begin() + i);
 			return;
@@ -50,6 +50,6 @@ void SpellBook::forgetSpell(std::string const &spell) {
 ASpell *SpellBook::createSpell(std::string const &spell) {
 	size_t i = spells.size();
 	while (i-- > 0)
-		if (spells[i]->getName().compare(spell) == 0) return spells[i];
+		if (spells[i]->getName() == spell) return spells[i];
 	return (NULL);
 }

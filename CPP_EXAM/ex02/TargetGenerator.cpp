@@ -31,7 +31,7 @@ TargetGenerator::~TargetGenerator() {
 void TargetGenerator::learnTargetType(ATarget *target) {
 	size_t i = targets.size();
 	while (i-- > 0) {
-		if (targets[i]->getType().compare(target->getType()) == 0) return;
+		if (targets[i]->getType() == target->getType()) return;
 	}
 	targets.push_back(target->clone());
 }
@@ -39,7 +39,7 @@ void TargetGenerator::learnTargetType(ATarget *target) {
 void TargetGenerator::forgetTargetType(std::string const &target) {
 	size_t i = targets.size();
 	while (i-- > 0) {
-		if (targets[i]->getType().compare(target) == 0) {
+		if (targets[i]->getType() == target) {
 			delete targets[i];
 			targets.erase(targets.begin() + i);
 			return;
@@ -50,6 +50,6 @@ void TargetGenerator::forgetTargetType(std::string const &target) {
 ATarget *TargetGenerator::createTarget(std::string const &target) {
 	size_t i = targets.size();
 	while (i-- > 0)
-		if (targets[i]->getType().compare(target) == 0) return (targets[i]);
+		if (targets[i]->getType() == target) return (targets[i]);
 	return NULL;
 }
