@@ -1,7 +1,5 @@
 #include "Warlock.hpp"
 
-#include "ASpell.hpp"
-
 Warlock::Warlock(std::string const &n, std::string const &t) : name(n), title(t) {
 	std::cout << n << ": This looks like another boring day." << std::endl;
 }
@@ -51,14 +49,13 @@ void Warlock::introduce() const {
 void Warlock::learnSpell(ASpell *spell) {
 	size_t i = spells.size();
 	while (i-- > 0)
-		if (spells[i]->getName().compare(spell->getName()) == 0) return;
+		if (spells[i]->getName() == spell->getName()) return;
 	spells.push_back(spell->clone());
 }
-
 void Warlock::forgetSpell(std::string spell) {
 	size_t i = spells.size();
 	while (i-- > 0) {
-		if (spells[i]->getName().compare(spell) == 0) {
+		if (spells[i]->getName() == spell) {
 			delete spells[i];
 			spells.erase(spells.begin() + i);
 			return;
@@ -69,7 +66,7 @@ void Warlock::forgetSpell(std::string spell) {
 void Warlock::launchSpell(std::string spell, ATarget const &target) {
 	size_t i = spells.size();
 	while (i-- > 0) {
-		if (spells[i]->getName().compare(spell) == 0) {
+		if (spells[i]->getName() == spell) {
 			spells[i]->launch(target);
 			return;
 		}
