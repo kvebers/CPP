@@ -1,4 +1,4 @@
-# CPP
+no# CPP
 
 ## CPP 00
 
@@ -42,5 +42,7 @@ Containers+ Sorting algorithms
 
 ## CPP Exam
 
-Result of everything built till cpp4 included 
+Result of everything built till cpp4 included.
+
+Practice of copy paste skill
 
