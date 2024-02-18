@@ -1,5 +1,3 @@
-no# CPP
-
 ## CPP 00
 
 Introduction to the classes and Syntax of CPP
