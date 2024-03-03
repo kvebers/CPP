@@ -36,7 +36,8 @@ Template+ container
 
 ## CPP 09 
 
-Containers+ Sorting algorithms 
+Containers+ Sorting algorithms
+Maps, Vectors, Sets, Arrays, Deque
 
 ## CPP Exam
 
